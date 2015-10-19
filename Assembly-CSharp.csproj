@@ -45,23 +45,31 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ActivatorViaInput.cs" />
-     <Compile Include="Assets\Scripts\BlockConverter_External.cs" />
-     <Compile Include="Assets\Scripts\BlockConverter_Internal.cs" />
-     <Compile Include="Assets\Scripts\BlockType.cs" />
-     <Compile Include="Assets\Scripts\CameraMovement.cs" />
-     <Compile Include="Assets\Scripts\Controls.cs" />
-     <Compile Include="Assets\Scripts\GameObjectActivator.cs" />
-     <Compile Include="Assets\Scripts\GenericFunctions.cs" />
-     <Compile Include="Assets\Scripts\InputTest.cs" />
-     <Compile Include="Assets\Scripts\ObjectDeActivator.cs" />
-     <Compile Include="Assets\Scripts\PivotSetter.cs" />
-     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-     <Compile Include="Assets\Scripts\PlayerState.cs" />
-     <Compile Include="Assets\Scripts\PlayerType.cs" />
-     <Compile Include="Assets\Scripts\Ploder.cs" />
-     <Compile Include="Assets\Scripts\Teleporter.cs" />
-     <Compile Include="Assets\Scripts\TypeOfPlayer.cs" />
+     <Compile Include="Assets\Scripts\Camera\CameraMovement.cs" />
+     <Compile Include="Assets\Scripts\Cubes\BlockConverter_External.cs" />
+     <Compile Include="Assets\Scripts\Cubes\BlockConverter_Internal.cs" />
+     <Compile Include="Assets\Scripts\Cubes\BlockType.cs" />
+     <Compile Include="Assets\Scripts\Environment\CheckPoint.cs" />
+     <Compile Include="Assets\Scripts\Environment\DeathTrap.cs" />
+     <Compile Include="Assets\Scripts\Environment\DoorLift.cs" />
+     <Compile Include="Assets\Scripts\Environment\GameObjectActivator.cs" />
+     <Compile Include="Assets\Scripts\Environment\PlayerRespawner.cs" />
+     <Compile Include="Assets\Scripts\Environment\ScriptActivator.cs" />
+     <Compile Include="Assets\Scripts\Players\Controls.cs" />
+     <Compile Include="Assets\Scripts\Players\Pause.cs" />
+     <Compile Include="Assets\Scripts\Players\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Players\PlayerState.cs" />
+     <Compile Include="Assets\Scripts\Players\PlayerType.cs" />
+     <Compile Include="Assets\Scripts\Players\Ploder.cs" />
+     <Compile Include="Assets\Scripts\Players\RestartLevel.cs" />
+     <Compile Include="Assets\Scripts\Players\StaticUpdater.cs" />
+     <Compile Include="Assets\Scripts\Players\Teleporter.cs" />
+     <Compile Include="Assets\Scripts\Players\TypeOfPlayer.cs" />
+     <Compile Include="Assets\Scripts\UI\StaticSetter.cs" />
+     <Compile Include="Assets\Scripts\UI\UIManager_InGame.cs" />
+     <Compile Include="Assets\Scripts\UI\UI_Animation.cs" />
+     <Compile Include="Assets\Scripts\Utilities\GenericFunctions.cs" />
+     <Compile Include="Assets\Scripts\Utilities\PivotSetter.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
