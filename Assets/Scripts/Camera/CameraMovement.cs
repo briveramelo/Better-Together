@@ -5,7 +5,6 @@ public class CameraMovement : MonoBehaviour {
 
 	public Transform targetTransformPosition;
 	public Transform targetTransformLookSpot;
-	public Controls controls;
 	[Range (0,1)]
 	public float lerpMoveFraction;
 
@@ -13,13 +12,14 @@ public class CameraMovement : MonoBehaviour {
 	public float lerpRotationFraction;
 
 
+	private Controls controls;
 	private float lastForwardPosition;
 	private float lastBackwardPosition;
 	private float switchCameraAngleDistance;
 
 	// Use this for initialization
 	void Awake () {
-		controls.SetControls(PlayerType.Explo);
+		controls = GameManager.StaticControls.Explo_Controls;
 		lerpMoveFraction = 0.075f;
 		lerpRotationFraction = 0.035f;
 		switchCameraAngleDistance = 1f;
@@ -47,9 +47,11 @@ public class CameraMovement : MonoBehaviour {
 		else{
 			targetTransformPosition = Players.explo_CameraAnchor;
 			targetTransformLookSpot = Players.explo_CameraLookSpot;
+			controls = GameManager.StaticControls.Explo_Controls;
 			if (!targetTransformPosition){
 				targetTransformPosition = Players.implo_CameraAnchor;
 				targetTransformLookSpot = Players.implo_CameraLookSpot;
+				controls = GameManager.StaticControls.Implo_Controls;
 			}
 		}
 

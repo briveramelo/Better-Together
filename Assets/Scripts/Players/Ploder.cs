@@ -6,10 +6,10 @@ using System.Linq;
 public class Ploder : MonoBehaviour {
 
 	public TypeOfPlayer typeOfPlayer;
-	public Controls controls;
 	public PlayerMovement playerMovement;
 	private Collider[] collidersToPlode;
 	
+	private Controls controls;
 	private float baselinePlodeForce;
 	private float plosionRadius;
 	private bool ploding;
@@ -23,6 +23,7 @@ public class Ploder : MonoBehaviour {
 		baselinePlodeForce = 20000f;
 		plosionRadius = 10f;
 		collidersToPlode = new Collider[0];
+		GetCurrentControls();
 	}
 	
 	// Update is called once per frame
@@ -90,6 +91,15 @@ public class Ploder : MonoBehaviour {
 		                                                           (foundCollider.tag == Tags.explode_Objects && typeOfPlayer.PlayerType == PlayerType.Explo) || 
 		                                                           (foundCollider.tag == Tags.implode_Objects && typeOfPlayer.PlayerType == PlayerType.Implo))).ToArray();
 
+	}
+
+	public void GetCurrentControls(){
+		if (typeOfPlayer.PlayerType == PlayerType.Explo){
+			controls = GameManager.StaticControls.Explo_Controls;
+		}
+		else{
+			controls = GameManager.StaticControls.Implo_Controls;
+		} 
 	}
 
 }

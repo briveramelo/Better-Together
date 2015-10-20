@@ -12,6 +12,7 @@ public class Controls : MonoBehaviour {
 	private string jump;
 	private string pause;
 	private string restart;
+	private string door;
 
 	public string Horizontal{ get{return horizontal;}}
 	public string Vertical{ get{return vertical;}}
@@ -19,7 +20,12 @@ public class Controls : MonoBehaviour {
 	public string Jump{ get{return jump;}}
 	public string Pause{ get{return pause;}}
 	public string Restart{ get{return restart;}}
+	public string Door{ get{return door;}}
 		
+	void Awake(){
+		SetControls(playerType);
+	}
+
 	public void SetControls(PlayerType playerType){
 		if (playerType == PlayerType.Explo){
 			horizontal = "P1_Horizontal";
@@ -28,7 +34,7 @@ public class Controls : MonoBehaviour {
 			jump = "P1_Jump";
 			pause = "P1_Pause";
 			restart = "P1_Restart";
-			StaticControls.controls_Explo = this;
+			door = "P1_Door";
 		}
 		else if (playerType == PlayerType.Implo){
 			horizontal = "P2_Horizontal";
@@ -37,12 +43,8 @@ public class Controls : MonoBehaviour {
 			jump = "P2_Jump";
 			pause = "P2_Pause";
 			restart = "P2_Restart";
-			StaticControls.controls_Implo = this;
+			door = "P2_Door";
 		}
-	}
-
-	void Update(){
-		SetControls(playerType);
 	}
 
 }

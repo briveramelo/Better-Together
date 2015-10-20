@@ -47,6 +47,7 @@ public class GameObjectActivator : MonoBehaviour {
 			}
 		}
 	}
+
 	void ActivateGameObjects(){
 		if (noise){
 			noise.Play();

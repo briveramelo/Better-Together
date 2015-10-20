@@ -1,0 +1,584 @@
+fileFormatVersion: 2
+guid: b75f017e255fa4e68b6b85932ac31e32
+timeCreated: 1445307850
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BoxBow_0
+    21300002: BoxBow_1
+    21300004: BoxBow_2
+    21300006: BoxBow_3
+    21300008: BoxBow_4
+    21300010: BoxBow_5
+    21300012: BoxBow_6
+    21300014: BoxBow_7
+    21300016: BoxBow_8
+    21300018: BoxBow_9
+    21300020: BoxBow_10
+    21300022: BoxBow_11
+    21300024: BoxBow_12
+    21300026: BoxBow_13
+    21300028: BoxBow_14
+    21300030: BoxBow_15
+    21300032: BoxBow_16
+    21300034: BoxBow_17
+    21300036: BoxBow_18
+    21300038: BoxBow_19
+    21300040: BoxBow_20
+    21300042: BoxBow_21
+    21300044: BoxBow_22
+    21300046: BoxBow_23
+    21300048: BoxBow_24
+    21300050: BoxBow_25
+    21300052: BoxBow_26
+    21300054: BoxBow_27
+    21300056: BoxBow_28
+    21300058: BoxBow_29
+    21300060: BoxBow_30
+    21300062: BoxBow_31
+    21300064: BoxBow_32
+    21300066: BoxBow_33
+    21300068: BoxBow_34
+    21300070: BoxBow_35
+    21300072: BoxBow_36
+    21300074: BoxBow_37
+    21300076: BoxBow_38
+    21300078: BoxBow_39
+    21300080: BoxBow_40
+    21300082: BoxBow_41
+    21300084: BoxBow_42
+    21300086: BoxBow_43
+    21300088: BoxBow_44
+    21300090: BoxBow_45
+    21300092: BoxBow_46
+    21300094: BoxBow_47
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: BoxBow_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3731
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_1
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 3731
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_2
+      rect:
+        serializedVersion: 2
+        x: 1704
+        y: 3731
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_3
+      rect:
+        serializedVersion: 2
+        x: 2556
+        y: 3731
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_4
+      rect:
+        serializedVersion: 2
+        x: 3408
+        y: 3731
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_5
+      rect:
+        serializedVersion: 2
+        x: 4260
+        y: 3731
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3198
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_7
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 3198
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_8
+      rect:
+        serializedVersion: 2
+        x: 1704
+        y: 3198
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_9
+      rect:
+        serializedVersion: 2
+        x: 2556
+        y: 3198
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_10
+      rect:
+        serializedVersion: 2
+        x: 3408
+        y: 3198
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_11
+      rect:
+        serializedVersion: 2
+        x: 4260
+        y: 3198
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2665
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_13
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 2665
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_14
+      rect:
+        serializedVersion: 2
+        x: 1704
+        y: 2665
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_15
+      rect:
+        serializedVersion: 2
+        x: 2556
+        y: 2665
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_16
+      rect:
+        serializedVersion: 2
+        x: 3408
+        y: 2665
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_17
+      rect:
+        serializedVersion: 2
+        x: 4260
+        y: 2665
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2132
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_19
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 2132
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_20
+      rect:
+        serializedVersion: 2
+        x: 1704
+        y: 2132
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_21
+      rect:
+        serializedVersion: 2
+        x: 2556
+        y: 2132
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_22
+      rect:
+        serializedVersion: 2
+        x: 3408
+        y: 2132
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_23
+      rect:
+        serializedVersion: 2
+        x: 4260
+        y: 2132
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1599
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_25
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 1599
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_26
+      rect:
+        serializedVersion: 2
+        x: 1704
+        y: 1599
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_27
+      rect:
+        serializedVersion: 2
+        x: 2556
+        y: 1599
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_28
+      rect:
+        serializedVersion: 2
+        x: 3408
+        y: 1599
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_29
+      rect:
+        serializedVersion: 2
+        x: 4260
+        y: 1599
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1066
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_31
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 1066
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_32
+      rect:
+        serializedVersion: 2
+        x: 1704
+        y: 1066
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_33
+      rect:
+        serializedVersion: 2
+        x: 2556
+        y: 1066
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_34
+      rect:
+        serializedVersion: 2
+        x: 3408
+        y: 1066
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_35
+      rect:
+        serializedVersion: 2
+        x: 4260
+        y: 1066
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 533
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_37
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 533
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_38
+      rect:
+        serializedVersion: 2
+        x: 1704
+        y: 533
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_39
+      rect:
+        serializedVersion: 2
+        x: 2556
+        y: 533
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_40
+      rect:
+        serializedVersion: 2
+        x: 3408
+        y: 533
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_41
+      rect:
+        serializedVersion: 2
+        x: 4260
+        y: 533
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_43
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 0
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_44
+      rect:
+        serializedVersion: 2
+        x: 1704
+        y: 0
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_45
+      rect:
+        serializedVersion: 2
+        x: 2556
+        y: 0
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_46
+      rect:
+        serializedVersion: 2
+        x: 3408
+        y: 0
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BoxBow_47
+      rect:
+        serializedVersion: 2
+        x: 4260
+        y: 0
+        width: 852
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

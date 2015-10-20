@@ -3,7 +3,13 @@ using System.Collections;
 using GenericFunctions;
 public class Pause : MonoBehaviour {
 
-	public Controls controls;
+	private Controls controls;
+	public TypeOfPlayer typeOfPlayer;
+
+	void Awake(){
+		GetCurrentControls();
+	}
+
 	void Update () {
 		if (Input.GetButtonDown(controls.Pause)){
 			PauseLevel();
@@ -14,5 +20,14 @@ public class Pause : MonoBehaviour {
 		Time.timeScale = GameState.isPaused ? 1f : 0f;
 		LevelItems.pauseMenu.SetActive(!LevelItems.pauseMenu.activeSelf);
 		GameState.isPaused = !GameState.isPaused;
+	}
+
+	public void GetCurrentControls(){
+		if (typeOfPlayer.PlayerType == PlayerType.Explo){
+			controls = GameManager.StaticControls.Explo_Controls;
+		}
+		else{
+			controls = GameManager.StaticControls.Implo_Controls;
+		} 
 	}
 }

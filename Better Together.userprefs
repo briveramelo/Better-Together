@@ -1,11 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/UIManager_InGame.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Utilities/ButtonStatics.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/UIManager_InGame.cs" Line="29" Column="1" />
-      <File FileName="Assets/Scripts/UI/UI_Animation.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Players/Pause.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Utilities/GenericFunctions.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Utilities/SwitchControls.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Players/Pause.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Players/PlayerMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Players/Ploder.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Environment/GameObjectActivator.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Utilities/ButtonStatics.cs" Line="17" Column="13" />
+      <File FileName="Assets/Scripts/Utilities/ButtonActivator.cs" Line="65" Column="41" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,10 +19,10 @@
             <Node name="Scripts" expanded="True">
               <Node name="Environment" expanded="True" />
               <Node name="Players" expanded="True" />
-              <Node name="UI" expanded="True">
-                <Node name="UIManager_InGame.cs" selected="True" />
+              <Node name="UI" expanded="True" />
+              <Node name="Utilities" expanded="True">
+                <Node name="ButtonStatics.cs" selected="True" />
               </Node>
-              <Node name="Utilities" expanded="True" />
             </Node>
           </Node>
         </State>

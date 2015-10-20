@@ -52,9 +52,11 @@
      <Compile Include="Assets\Scripts\Environment\CheckPoint.cs" />
      <Compile Include="Assets\Scripts\Environment\DeathTrap.cs" />
      <Compile Include="Assets\Scripts\Environment\DoorLift.cs" />
+     <Compile Include="Assets\Scripts\Environment\ExitPlatform.cs" />
      <Compile Include="Assets\Scripts\Environment\GameObjectActivator.cs" />
      <Compile Include="Assets\Scripts\Environment\PlayerRespawner.cs" />
      <Compile Include="Assets\Scripts\Environment\ScriptActivator.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Players\Controls.cs" />
      <Compile Include="Assets\Scripts\Players\Pause.cs" />
      <Compile Include="Assets\Scripts\Players\PlayerMovement.cs" />
@@ -65,11 +67,20 @@
      <Compile Include="Assets\Scripts\Players\StaticUpdater.cs" />
      <Compile Include="Assets\Scripts\Players\Teleporter.cs" />
      <Compile Include="Assets\Scripts\Players\TypeOfPlayer.cs" />
+     <Compile Include="Assets\Scripts\UI\CharacterSelect.cs" />
+     <Compile Include="Assets\Scripts\UI\HomeScreen.cs" />
+     <Compile Include="Assets\Scripts\UI\LevelSelector.cs" />
+     <Compile Include="Assets\Scripts\UI\PlaySound.cs" />
      <Compile Include="Assets\Scripts\UI\StaticSetter.cs" />
      <Compile Include="Assets\Scripts\UI\UIManager_InGame.cs" />
      <Compile Include="Assets\Scripts\UI\UI_Animation.cs" />
+     <Compile Include="Assets\Scripts\UI\UI_Input.cs" />
+     <Compile Include="Assets\Scripts\Utilities\AnimateTexture.cs" />
+     <Compile Include="Assets\Scripts\Utilities\ButtonActivator.cs" />
+     <Compile Include="Assets\Scripts\Utilities\ButtonStatics.cs" />
      <Compile Include="Assets\Scripts\Utilities\GenericFunctions.cs" />
      <Compile Include="Assets\Scripts\Utilities\PivotSetter.cs" />
+     <Compile Include="Assets\Scripts\Utilities\SwitchControls.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

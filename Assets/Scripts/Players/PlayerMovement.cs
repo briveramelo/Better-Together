@@ -8,14 +8,14 @@ public class PlayerMovement : MonoBehaviour {
 
 	#region Initialize Variables
 	public TypeOfPlayer typeOfPlayer;
-	public Controls controls;
-	public Rigidbody playerBody;
 	public Transform feet;
 	public Ploder ploderScript;
 
 	private bool grounded;
 	private float lastXAxisInput;
 	private float deadSize;
+	public Rigidbody playerBody;
+	private Controls controls;
 
 	[Range(2,5)]
 	public float maxSpeed;
@@ -29,16 +29,18 @@ public class PlayerMovement : MonoBehaviour {
 	void Awake(){
 		moveForce = .3f;
 		deadSize = 0.5f;
-		controls.SetControls(typeOfPlayer.PlayerType);
+
 		SetSpeed(typeOfPlayer.PlayerType);
 		Physics.IgnoreLayerCollision(Layers.player, Layers.player, true);
 		Physics.IgnoreLayerCollision(Layers.player, Layers.invisibleWAlls, true);
 
 		if (typeOfPlayer.PlayerType == PlayerType.Explo){
 			Players.explo = gameObject;
+			controls = GameManager.StaticControls.Explo_Controls;
 		}
 		else{
 			Players.implo = gameObject;
+			controls = GameManager.StaticControls.Implo_Controls;
 		}
 
 	}
@@ -103,5 +105,14 @@ public class PlayerMovement : MonoBehaviour {
 		if (air){
 			grounded = false;
 		}
+	}
+
+	public void GetCurrentControls(){
+		if (typeOfPlayer.PlayerType == PlayerType.Explo){
+			controls = GameManager.StaticControls.Explo_Controls;
+		}
+		else{
+			controls = GameManager.StaticControls.Implo_Controls;
+		} 
 	}
 }

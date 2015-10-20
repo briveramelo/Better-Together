@@ -32,23 +32,29 @@ namespace GenericFunctions{
 		public static Transform implo_CameraAnchor;
 		public static Transform implo_CameraLookSpot;
 
+		public static GameObject explo_x_button;
+		public static GameObject explo_y_button;
+		public static GameObject implo_x_button;
+		public static GameObject implo_y_button;
+
+
 		public static PlayerType dominantPlayer;
 
 		public static Vector3 respawnShift = -Vector3.right;
 	}
 	#endregion
 
-	#region Controls (explo _ implo)
-	public static class StaticControls{
-		public static Controls controls_Explo;
-		public static Controls controls_Implo;
-	}
-	#endregion
-
 	#region LevelNames
 	public static class Levels{
-		public static string mainMenu = "Main Menu";
+		public static string homeScreen = "HomeScreen";
+		public static string characterSelect = "CharacterSelect";
+		public static string mainMenu = "LevelSelect";
 		public static string level1 = "Level1";
+		public static string level2 = "Level2";
+		public static string level3 = "Level3";
+		public static string level4 = "Level4";
+		public static string level5 = "Level5";
+		public static string level6 = "Level6";
 	}
 	#endregion
 
