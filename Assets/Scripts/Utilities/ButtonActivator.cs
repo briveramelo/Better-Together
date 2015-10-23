@@ -7,7 +7,10 @@ public class ButtonActivator : MonoBehaviour {
 		Input,
 		Collision,
 		TriggerCollider,
+		InputAndTrigger
 	}
+	public bool dependsOnPlayerType;
+	public PlayerType playerType;
 	public TriggerType triggerType;
 	public string[] objectsToActivate;
 	public string[] inputStrings;
@@ -28,8 +31,30 @@ public class ButtonActivator : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		if (triggerType == TriggerType.TriggerCollider){
 			if (col.gameObject.layer == Layers.player){
-				if (oneOff && !done || !oneOff){
-					ActivateGameObjects();
+				if (!dependsOnPlayerType || col.GetComponent<TypeOfPlayer>().PlayerType == playerType){
+					if (oneOff && !done || !oneOff){
+						ActivateGameObjects();
+					}
+				}
+			}
+		}
+	}
+	
+	void OnTriggerStay(Collider col){
+		if (triggerType == TriggerType.InputAndTrigger){
+			if (col.gameObject.layer == Layers.player){
+				if (col.GetComponent<TypeOfPlayer>()){
+					if (!dependsOnPlayerType || col.GetComponent<TypeOfPlayer>().PlayerType == playerType){
+						if (triggerType == TriggerType.InputAndTrigger){
+							if (oneOff && !done || !oneOff){
+								foreach (string inputString in inputStrings){
+									if (Input.GetButtonDown(inputString)){
+										ActivateGameObjects();
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 		}
@@ -46,7 +71,13 @@ public class ButtonActivator : MonoBehaviour {
 			}
 		}
 	}
-	
+
+
+
+
+
+
+
 	void ActivateGameObjects(){
 		if (noise){
 			noise.Play();
@@ -67,4 +98,6 @@ public class ButtonActivator : MonoBehaviour {
 			}
 		}
 	}
+
+
 }

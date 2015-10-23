@@ -4,7 +4,8 @@ using GenericFunctions;
 public class RestartLevel : MonoBehaviour {
 
 	void Update () {
-		if (Input.GetButton(GameManager.StaticControls.P1_Controls.Restart) && Input.GetButton(GameManager.StaticControls.P2_Controls.Restart)){
+		if (Input.GetButton(GameManager.StaticControls.P1_Controls.Restart) &&
+		    Input.GetButton(GameManager.StaticControls.P2_Controls.Restart)){
 			Application.LoadLevel(Application.loadedLevelName);
 		}
 	}

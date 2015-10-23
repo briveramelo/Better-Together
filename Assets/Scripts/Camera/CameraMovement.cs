@@ -62,11 +62,13 @@ public class CameraMovement : MonoBehaviour {
 				targetTransformPosition = Players.implo_CameraAnchor;
 				targetTransformLookSpot = Players.implo_CameraLookSpot;
 				playerControlsForCamera = GameManager.StaticControls.Implo_Controls;
+				Players.dominantPlayer = PlayerType.Implo;
 			}
 			else{
 				targetTransformPosition = Players.explo_CameraAnchor;
 				targetTransformLookSpot = Players.explo_CameraLookSpot;
 				playerControlsForCamera = GameManager.StaticControls.Explo_Controls;
+				Players.dominantPlayer = PlayerType.Explo;
 			}
 		}
 	}

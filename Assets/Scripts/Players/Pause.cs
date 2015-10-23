@@ -20,6 +20,14 @@ public class Pause : MonoBehaviour {
 		Time.timeScale = GameState.isPaused ? 1f : 0f;
 		LevelItems.pauseMenu.SetActive(!LevelItems.pauseMenu.activeSelf);
 		GameState.isPaused = !GameState.isPaused;
+		foreach (AudioSource aud in FindObjectsOfType<AudioSource>()){
+			if (GameState.isPaused){
+				aud.Pause();
+			}
+			else{
+				aud.UnPause();
+			}
+		}
 	}
 
 	public void GetCurrentControls(){

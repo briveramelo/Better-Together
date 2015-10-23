@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\Cubes\BlockConverter_External.cs" />
      <Compile Include="Assets\Scripts\Cubes\BlockConverter_Internal.cs" />
      <Compile Include="Assets\Scripts\Cubes\BlockType.cs" />
+     <Compile Include="Assets\Scripts\Environment\AudioPlayer.cs" />
      <Compile Include="Assets\Scripts\Environment\CheckPoint.cs" />
      <Compile Include="Assets\Scripts\Environment\DeathTrap.cs" />
      <Compile Include="Assets\Scripts\Environment\DoorLift.cs" />
@@ -67,6 +68,7 @@
      <Compile Include="Assets\Scripts\Players\RestartLevel.cs" />
      <Compile Include="Assets\Scripts\Players\StaticUpdater.cs" />
      <Compile Include="Assets\Scripts\Players\Teleporter.cs" />
+     <Compile Include="Assets\Scripts\Players\Tosser.cs" />
      <Compile Include="Assets\Scripts\Players\TypeOfPlayer.cs" />
      <Compile Include="Assets\Scripts\UI\CharacterSelect.cs" />
      <Compile Include="Assets\Scripts\UI\HomeScreen.cs" />
@@ -82,17 +84,11 @@
      <Compile Include="Assets\Scripts\Utilities\GenericFunctions.cs" />
      <Compile Include="Assets\Scripts\Utilities\PivotSetter.cs" />
      <Compile Include="Assets\Scripts\Utilities\SwitchControls.cs" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour {
 		deadSize = 0.5f;
 
 		groundCheckHeight = 0.2f;
-		groundCheckMask = LayerMask.GetMask("Player","Ground");
+		groundCheckMask = LayerMask.GetMask("Player","Ground","Blocks");
 		SetSpeed(typeOfPlayer.PlayerType);
 
 		if (typeOfPlayer.PlayerType == PlayerType.Explo){
@@ -98,6 +98,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void MoveSideways(float xAxisInput){
 		playerBody.AddForce(Vector3.right * xAxisInput * moveForce, ForceMode.VelocityChange);
+		transform.localScale = new Vector3(Mathf.Sign(xAxisInput),1f,1f);
 	}
 
 	bool CheckForGround(){

@@ -3,12 +3,14 @@ using System.Collections;
 using GenericFunctions;
 public class ExitPlatform : MonoBehaviour {
 
-	public AudioClip conrad_WrapUp;
+	public AudioClip wrapUp;
 	public PlayerType platformType;
 	public ExitPlatform partnerPlatform;
 	private bool platformActive;
 	public bool PlatformActive{get{return platformActive;}}
 	private bool levelComplete;
+	public Transform exploParentAnimTran;
+	public Transform imploParentAnimTran;
 
 	void OnTriggerStay(Collider col){
 		if (col.gameObject.layer == Layers.player){
@@ -47,9 +49,20 @@ public class ExitPlatform : MonoBehaviour {
 		Players.implo.GetComponent<PlayerMovement>().enabled = false;
 		Players.implo.GetComponent<Pause>().enabled = false;
 		Players.implo.GetComponentInChildren<Ploder>().enabled = false;
-
-		AudioSource.PlayClipAtPoint(conrad_WrapUp,Camera.main.transform.position);
-		yield return new WaitForSeconds(conrad_WrapUp.length);
+		SetAnimationParent();
+		AudioSource cameraAudio = Camera.main.GetComponent<AudioSource>();
+		cameraAudio.enabled = true;
+		cameraAudio.clip = wrapUp;
+		cameraAudio.Play();
+		Camera.main.GetComponent<CameraMovement>().targetTransformLookSpot = Players.dominantPlayer == PlayerType.Explo ? Players.explo.transform : Players.implo.transform;
+		yield return new WaitForSeconds(wrapUp.length);
 		Application.LoadLevel(Levels.mainMenu);
+	}
+
+	public void SetAnimationParent(){
+		Players.explo.transform.parent = exploParentAnimTran;
+		Players.implo.transform.parent = imploParentAnimTran;
+		Players.explo.GetComponent<Animator>().enabled = true;
+		Players.implo.GetComponent<Animator>().enabled = true;
 	}
 }
