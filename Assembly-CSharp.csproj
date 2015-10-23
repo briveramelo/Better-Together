@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Environment\PlayerRespawner.cs" />
      <Compile Include="Assets\Scripts\Environment\ScriptActivator.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Levels\Level1.cs" />
      <Compile Include="Assets\Scripts\Players\Controls.cs" />
      <Compile Include="Assets\Scripts\Players\Pause.cs" />
      <Compile Include="Assets\Scripts\Players\PlayerMovement.cs" />
@@ -81,11 +82,17 @@
      <Compile Include="Assets\Scripts\Utilities\GenericFunctions.cs" />
      <Compile Include="Assets\Scripts\Utilities\PivotSetter.cs" />
      <Compile Include="Assets\Scripts\Utilities\SwitchControls.cs" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

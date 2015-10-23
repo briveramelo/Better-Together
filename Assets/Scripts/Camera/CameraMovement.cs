@@ -12,32 +12,39 @@ public class CameraMovement : MonoBehaviour {
 	public float lerpRotationFraction;
 
 
-	private Controls controls;
+	private Controls playerControlsForCamera;
 	private float lastForwardPosition;
 	private float lastBackwardPosition;
 	private float switchCameraAngleDistance;
+	private bool doingCinematics;
 
 	// Use this for initialization
 	void Awake () {
-		controls = GameManager.StaticControls.Explo_Controls;
+		playerControlsForCamera = GameManager.StaticControls.Explo_Controls;
 		lerpMoveFraction = 0.075f;
 		lerpRotationFraction = 0.035f;
 		switchCameraAngleDistance = 1f;
 	}
-	
+
+	void Update(){
+		if (Input.GetButtonDown(playerControlsForCamera.ToggleCamera)){
+			SwitchToOtherPlayer();
+		}
+	}
+
 	//FIXED UPDATE SO GOOD FOR LERP!
 	void FixedUpdate () {
 		if (targetTransformPosition){
 			transform.position = Vector3.Lerp(transform.position,targetTransformPosition.position,lerpMoveFraction);
 			transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.LookRotation(targetTransformLookSpot.position - transform.position), lerpRotationFraction);
-			if (Input.GetAxisRaw(controls.Horizontal)>0.5f){
+			if (Input.GetAxisRaw(playerControlsForCamera.Horizontal)>0.5f){
 				lastForwardPosition = transform.position.x;
 				if (lastForwardPosition>lastBackwardPosition+switchCameraAngleDistance){
 					targetTransformLookSpot.localPosition = new Vector3 (1f,0f,10f);
 				}
 				
 			}
-			else if (Input.GetAxisRaw(controls.Horizontal)<-0.5f){
+			else if (Input.GetAxisRaw(playerControlsForCamera.Horizontal)<-0.5f){
 				lastBackwardPosition = transform.position.x;
 				if (lastBackwardPosition<lastForwardPosition-switchCameraAngleDistance){
 					targetTransformLookSpot.localPosition = new Vector3 (-1f,0f,10f);
@@ -45,16 +52,26 @@ public class CameraMovement : MonoBehaviour {
 			}
 		}
 		else{
-			targetTransformPosition = Players.explo_CameraAnchor;
-			targetTransformLookSpot = Players.explo_CameraLookSpot;
-			controls = GameManager.StaticControls.Explo_Controls;
-			if (!targetTransformPosition){
+			SwitchToOtherPlayer();
+		}
+	}
+
+	void SwitchToOtherPlayer(){
+		if (!doingCinematics){
+			if (playerControlsForCamera.IsExplo){
 				targetTransformPosition = Players.implo_CameraAnchor;
 				targetTransformLookSpot = Players.implo_CameraLookSpot;
-				controls = GameManager.StaticControls.Implo_Controls;
+				playerControlsForCamera = GameManager.StaticControls.Implo_Controls;
+			}
+			else{
+				targetTransformPosition = Players.explo_CameraAnchor;
+				targetTransformLookSpot = Players.explo_CameraLookSpot;
+				playerControlsForCamera = GameManager.StaticControls.Explo_Controls;
 			}
 		}
+	}
 
-
+	public void DisableAnimator(){
+		GetComponent<Animator>().enabled = false;
 	}
 }

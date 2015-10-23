@@ -20,7 +20,7 @@ public class Ploder : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		baselinePlodeForce = 20000f;
+		baselinePlodeForce = 6500f;
 		plosionRadius = 10f;
 		collidersToPlode = new Collider[0];
 		GetCurrentControls();

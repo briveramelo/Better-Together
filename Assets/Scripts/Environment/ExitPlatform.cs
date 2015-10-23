@@ -12,16 +12,18 @@ public class ExitPlatform : MonoBehaviour {
 
 	void OnTriggerStay(Collider col){
 		if (col.gameObject.layer == Layers.player){
-			if (col.gameObject.GetComponent<TypeOfPlayer>().PlayerType == platformType){
-				if (platformType == PlayerType.Explo){
-					if (Input.GetButton (GameManager.StaticControls.Explo_Controls.Door)){
-						if (partnerPlatform.PlatformActive && !levelComplete){
-							StartCoroutine (EndTheLevel());
+			if (col.gameObject.GetComponent<TypeOfPlayer>()){
+				if (col.gameObject.GetComponent<TypeOfPlayer>().PlayerType == platformType){
+					if (platformType == PlayerType.Explo){
+						if (Input.GetButton (GameManager.StaticControls.Explo_Controls.Door)){
+							if (partnerPlatform.PlatformActive && !levelComplete){
+								StartCoroutine (EndTheLevel());
+							}
 						}
 					}
-				}
-				else{
-					platformActive = Input.GetButton (GameManager.StaticControls.Implo_Controls.Door) ? true : false;
+					else{
+						platformActive = Input.GetButton (GameManager.StaticControls.Implo_Controls.Door) ? true : false;
+					}
 				}
 			}
 		}
@@ -29,8 +31,10 @@ public class ExitPlatform : MonoBehaviour {
 
 	void OnTriggerExit(Collider col){
 		if (col.gameObject.layer == Layers.player){
-			if (col.gameObject.GetComponent<TypeOfPlayer>().PlayerType == platformType){
-				platformActive = false;
+			if (col.GetComponent<TypeOfPlayer>()){
+				if (col.gameObject.GetComponent<TypeOfPlayer>().PlayerType == platformType){
+					platformActive = false;
+				}
 			}
 		}
 	}
@@ -44,7 +48,7 @@ public class ExitPlatform : MonoBehaviour {
 		Players.implo.GetComponent<Pause>().enabled = false;
 		Players.implo.GetComponentInChildren<Ploder>().enabled = false;
 
-		AudioSource.PlayClipAtPoint(conrad_WrapUp,transform.position);
+		AudioSource.PlayClipAtPoint(conrad_WrapUp,Camera.main.transform.position);
 		yield return new WaitForSeconds(conrad_WrapUp.length);
 		Application.LoadLevel(Levels.mainMenu);
 	}

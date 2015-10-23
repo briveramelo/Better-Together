@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour {
 	public Ploder ploderScript;
 
 	private bool grounded;
+	private bool willJump;
+	private int groundCheckMask;
+	private float groundCheckHeight;
 	private float lastXAxisInput;
 	private float deadSize;
 	public Rigidbody playerBody;
@@ -30,9 +33,9 @@ public class PlayerMovement : MonoBehaviour {
 		moveForce = .3f;
 		deadSize = 0.5f;
 
+		groundCheckHeight = 0.2f;
+		groundCheckMask = LayerMask.GetMask("Player","Ground");
 		SetSpeed(typeOfPlayer.PlayerType);
-		Physics.IgnoreLayerCollision(Layers.player, Layers.player, true);
-		Physics.IgnoreLayerCollision(Layers.player, Layers.invisibleWAlls, true);
 
 		if (typeOfPlayer.PlayerType == PlayerType.Explo){
 			Players.explo = gameObject;
@@ -59,14 +62,18 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 
+	void Update(){
+		grounded = CheckForGround();
+		willJump = Input.GetButtonDown(controls.Jump) && grounded;
+	}
+
 	void FixedUpdate(){
-		bool willJump = Input.GetButtonDown(controls.Jump) && grounded;
 		float xAxisInput = Input.GetAxisRaw(controls.Horizontal);
 		bool willMoveSideways = Mathf.Abs (xAxisInput)>0 &&
-			(Mathf.Abs (playerBody.velocity.x)<(maxSpeed *Mathf.Abs (xAxisInput)) || Mathf.Sign (playerBody.velocity.x)!= Mathf.Sign(xAxisInput));
+			(Mathf.Abs (playerBody.velocity.x)<(maxSpeed *Mathf.Abs (xAxisInput)) ||
+			 Mathf.Sign (playerBody.velocity.x)!= Mathf.Sign(xAxisInput));
 		bool willBrake = grounded && Mathf.Abs (lastXAxisInput)>deadSize && Mathf.Abs (xAxisInput) <deadSize;
 
-		CheckForGround();
 		if (willJump){
 			Jump();
 		}
@@ -93,19 +100,18 @@ public class PlayerMovement : MonoBehaviour {
 		playerBody.AddForce(Vector3.right * xAxisInput * moveForce, ForceMode.VelocityChange);
 	}
 
-	void CheckForGround(){
-		bool air = true;
-		foreach (Collider col in Physics.OverlapSphere(feet.position,0.25f,-1,QueryTriggerInteraction.Ignore)){
-			if (col.gameObject.layer == Layers.ground || col.gameObject.layer == Layers.player){
-				grounded = true;
-				air = false;
-				break;
-			}
-		}
-		if (air){
-			grounded = false;
-		}
+	bool CheckForGround(){
+
+		return Physics.Raycast(feet.position + Vector3.up*0.5f,Vector3.down,(0.5f+groundCheckHeight),groundCheckMask)||
+			Physics.Raycast(feet.position + transform.right*0.3f + Vector3.up*0.5f,Vector3.down,(0.5f+groundCheckHeight),groundCheckMask)||
+			Physics.Raycast(feet.position - transform.right*0.3f + Vector3.up*0.5f,Vector3.down,(0.5f+groundCheckHeight),groundCheckMask);
 	}
+//
+//	void OnDrawGizmos(){
+//		Debug.DrawRay(feet.position + Vector3.up*0.5f,Vector3.down*(0.5f+groundCheckHeight));
+//		Debug.DrawRay(feet.position + transform.right*0.3f + Vector3.up*0.5f,Vector3.down*(0.5f+groundCheckHeight));
+//		Debug.DrawRay(feet.position - transform.right*0.3f + Vector3.up*0.5f,Vector3.down*(0.5f+groundCheckHeight));
+//	}
 
 	public void GetCurrentControls(){
 		if (typeOfPlayer.PlayerType == PlayerType.Explo){

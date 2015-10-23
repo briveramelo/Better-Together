@@ -6,6 +6,7 @@ public class Controls : MonoBehaviour {
 
 	public PlayerType playerType; 
 
+	private bool isExplo;
 	private string horizontal;
 	private string vertical;
 	private string action; 
@@ -13,6 +14,7 @@ public class Controls : MonoBehaviour {
 	private string pause;
 	private string restart;
 	private string door;
+	private string toggleCamera;
 
 	public string Horizontal{ get{return horizontal;}}
 	public string Vertical{ get{return vertical;}}
@@ -21,7 +23,9 @@ public class Controls : MonoBehaviour {
 	public string Pause{ get{return pause;}}
 	public string Restart{ get{return restart;}}
 	public string Door{ get{return door;}}
-		
+	public string ToggleCamera{get{return toggleCamera;}}
+	public bool IsExplo{get{return isExplo;}}	
+
 	void Awake(){
 		SetControls(playerType);
 	}
@@ -35,6 +39,8 @@ public class Controls : MonoBehaviour {
 			pause = "P1_Pause";
 			restart = "P1_Restart";
 			door = "P1_Door";
+			toggleCamera = "P1_ToggleCamera";
+			isExplo = true;
 		}
 		else if (playerType == PlayerType.Implo){
 			horizontal = "P2_Horizontal";
@@ -44,6 +50,8 @@ public class Controls : MonoBehaviour {
 			pause = "P2_Pause";
 			restart = "P2_Restart";
 			door = "P2_Door";
+			toggleCamera = "P2_ToggleCamera";
+			isExplo = false;
 		}
 	}
 

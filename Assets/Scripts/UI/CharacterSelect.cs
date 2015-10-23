@@ -2,10 +2,7 @@
 using System.Collections;
 using GenericFunctions;
 public class CharacterSelect : MonoBehaviour {
-
-	public Controls P1_Controls;
-	public Controls P2_Controls;
-
+	
 	public Transform exploTran;
 	public Transform imploTran;
 	public Transform p1Tran;
@@ -31,38 +28,37 @@ public class CharacterSelect : MonoBehaviour {
 	void Update(){
 		if (!selected){
 
-			if (Input.GetButtonDown(P1_Controls.Jump) || Input.GetButtonDown(P2_Controls.Jump)){
+			if (Input.GetButtonDown(GameManager.StaticControls.P1_Controls.Jump)){
 				StartCoroutine(LoadLevel(0));
 			}
-			else if (Input.GetButtonDown(P1_Controls.Restart) || Input.GetButtonDown(P2_Controls.Restart)){
+			else if (Input.GetButtonDown(GameManager.StaticControls.P1_Controls.Restart)){
 				StartCoroutine(LoadLevel(-2));
 			}
 			
-			if ( (Mathf.Abs (Input.GetAxisRaw( P1_Controls.Horizontal)) >near1 && Mathf.Abs (last_P1Horizontal) < near1)
-			  || (Mathf.Abs (Input.GetAxisRaw( P2_Controls.Horizontal)) >near1 && Mathf.Abs (last_P2Horizontal) < near1)){
+			if ( (Mathf.Abs (Input.GetAxisRaw(GameManager.StaticControls.P1_Controls.Horizontal)) >near1 && Mathf.Abs (last_P1Horizontal) < near1)){
 				SwitchPositions();
-				AudioSource.PlayClipAtPoint(toggle,transform.position);
+				AudioSource.PlayClipAtPoint(toggle,Camera.main.transform.position);
 			}
 			
-			last_P1Horizontal = Input.GetAxisRaw( P1_Controls.Horizontal);
-			last_P2Horizontal = Input.GetAxisRaw( P2_Controls.Horizontal);
+			last_P1Horizontal = Input.GetAxisRaw( GameManager.StaticControls.P1_Controls.Horizontal);
 		}
 
 	}
 
 	void SetControls(){
-		GameManager.StaticControls.P1_Controls = exploOnLeft ? P1_Controls : P2_Controls;
+		GameManager.StaticControls.P1_Controls = exploOnLeft ? 
+			GameManager.StaticControls.Explo_Controls : GameManager.StaticControls.Implo_Controls;
 	}
 
 	IEnumerator LoadLevel(int levelNumber){
 		SetControls ();
 		conradOpener.Stop();
-		AudioSource.PlayClipAtPoint(select,transform.position);
+		AudioSource.PlayClipAtPoint(select,Camera.main.transform.position);
 		selected = true;
 
 		switch (levelNumber){
-			case -2: AudioSource.PlayClipAtPoint(conrad_01,transform.position); break;
-			case 0:  AudioSource.PlayClipAtPoint(conrad1,transform.position); break;
+			case -2: AudioSource.PlayClipAtPoint(conrad_01,Camera.main.transform.position); break;
+			case 0:  AudioSource.PlayClipAtPoint(conrad1,Camera.main.transform.position); break;
 		}
 		yield return new WaitForSeconds(5f);
 		switch (levelNumber){

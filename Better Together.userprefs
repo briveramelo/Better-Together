@@ -1,28 +1,25 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Utilities/ButtonStatics.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Environment/GameObjectActivator.cs">
     <Files>
-      <File FileName="Assets/Scripts/Utilities/GenericFunctions.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Utilities/SwitchControls.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Levels/Level1.cs" Line="14" Column="5" />
+      <File FileName="Assets/Scripts/Camera/CameraMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Players/Controls.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Players/Pause.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Environment/GameObjectActivator.cs" Line="58" Column="7" />
       <File FileName="Assets/Scripts/Players/PlayerMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Players/Ploder.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Environment/GameObjectActivator.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Utilities/ButtonStatics.cs" Line="17" Column="13" />
-      <File FileName="Assets/Scripts/Utilities/ButtonActivator.cs" Line="65" Column="41" />
+      <File FileName="Assets/Scripts/Utilities/GenericFunctions.cs" Line="21" Column="20" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Scripts" expanded="True">
-              <Node name="Environment" expanded="True" />
-              <Node name="Players" expanded="True" />
-              <Node name="UI" expanded="True" />
-              <Node name="Utilities" expanded="True">
-                <Node name="ButtonStatics.cs" selected="True" />
+              <Node name="Environment" expanded="True">
+                <Node name="GameObjectActivator.cs" selected="True" />
               </Node>
+              <Node name="Players" expanded="True" />
+              <Node name="Utilities" expanded="True" />
             </Node>
           </Node>
         </State>

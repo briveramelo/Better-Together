@@ -8,7 +8,10 @@ public class GameObjectActivator : MonoBehaviour {
 		Input,
 		Collision,
 		TriggerCollider,
+		InputAndTrigger
 	}
+	public bool dependsOnPlayerType;
+	public TypeOfPlayer typeOfPlayer;
 	public TriggerType triggerType;
 	public GameObject[] objectsToActivate;
 	public string[] inputStrings;
@@ -29,8 +32,30 @@ public class GameObjectActivator : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		if (triggerType == TriggerType.TriggerCollider){
 			if (col.gameObject.layer == Layers.player){
-				if (oneOff && !done || !oneOff){
-					ActivateGameObjects();
+				if (!dependsOnPlayerType || col.GetComponent<TypeOfPlayer>().PlayerType == typeOfPlayer.PlayerType){
+					if (oneOff && !done || !oneOff){
+						ActivateGameObjects();
+					}
+				}
+			}
+		}
+	}
+
+	void OnTriggerStay(Collider col){
+		if (triggerType == TriggerType.InputAndTrigger){
+			if (col.gameObject.layer == Layers.player){
+				if (col.GetComponent<TypeOfPlayer>()){
+					if (!dependsOnPlayerType || col.GetComponent<TypeOfPlayer>().PlayerType == typeOfPlayer.PlayerType){
+						if (triggerType == TriggerType.InputAndTrigger){
+							if (oneOff && !done || !oneOff){
+								foreach (string inputString in inputStrings){
+									if (Input.GetButtonDown(inputString)){
+										ActivateGameObjects();
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 		}

@@ -19,6 +19,7 @@ namespace GenericFunctions{
 		public static int player = 8;
 		public static int ground = 9;
 		public static int invisibleWAlls = 10;
+		public static int feet = 11;
 	}
 	#endregion
 
