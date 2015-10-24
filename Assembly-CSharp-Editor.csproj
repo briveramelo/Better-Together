@@ -46,6 +46,59 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\CurvePropertyDrawer.cs" />
+     <Compile Include="Assets\Editor\Scripts\EffectSettingsEditor.cs" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\IceVert 1.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\GlowAdditive.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Matrix\Additive.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Mobile\Distortion\DistortionCullOff.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\ParticleAdd.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\ParticleAddNoSmooth.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Mobile\Water.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Distortion\Free\FreeDistortionCullBack.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Particles.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\IceShaderDistortion.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Water.shader" />
+     <None Include="Assets\Realistic Effects Pack\Readme.txt" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Distortion\DistortionParticlesCutout.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\AlphaBlended 1.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Matrix\GlowAdditive.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Rim.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\AlphaBlendedNoSmooth.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Distortion\Free\FreeDistortionCutOut.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\GlowAdditiveTwoColor.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Explosion.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Distortion\Free\FreeDistortionCullOff.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Mobile\Distortion\DistortionParticlesCutout.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\DiffuseRim.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Distortion\DistortionCullOff.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\GlowAdditiveRGB.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Distortion\DistortionCullBack.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\MultiplyDouble.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Projectors\ProjectorAdditive.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\SlimeCutOut.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Mobile\IceVert.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Explosion2.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Ice.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\AlphaBlended.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Matrix\GlowAdditiveSimple.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BrightPassFilter.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\IceShaderFastSimple.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Mobile\Distortion\DistortionCullBack.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Dissolve.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Mobile\IceShaderDistortion.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Mobile\SlimeCutOut.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\Blend.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\GlowAdditiveSimple.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\IceVert.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\Projectors\ProjectorBlended.shader" />
+     <None Include="Assets\Realistic Effects Pack\Shaders\WaterFree.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendForBloom.shader" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
@@ -60,6 +113,9 @@
  </Reference>
  <Reference Include="UnityEditor.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -93,8 +149,14 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{649C98AE-B886-CF6F-84B7-9BAADF7FBCD0}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
+      <Project>{8B8AC53A-E727-D75B-0CF2-3FD7BE6D32B1}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{47FD894F-A74F-3CB5-66D7-E660CD7A0ED2}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-UnityScript.unityproj">
+      <Project>{18CC4D82-BCD7-F927-04B7-450FCD6D61FD}</Project>      <Name>Assembly-UnityScript</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

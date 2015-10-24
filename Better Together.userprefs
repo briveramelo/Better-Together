@@ -1,25 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Environment/AudioPlayer.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Players/Tosser.cs">
     <Files>
-      <File FileName="Assets/Scripts/Levels/Level1.cs" Line="14" Column="5" />
-      <File FileName="Assets/Scripts/Camera/CameraMovement.cs" Line="71" Column="46" />
-      <File FileName="Assets/Scripts/Players/Controls.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Players/Pause.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Environment/GameObjectActivator.cs" Line="84" Column="3" />
-      <File FileName="Assets/Scripts/Players/PlayerMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Utilities/GenericFunctions.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Environment/ExitPlatform.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Environment/AudioPlayer.cs" Line="20" Column="1" />
-      <File FileName="Assets/Scripts/Utilities/ButtonActivator.cs" Line="47" Column="91" />
+      <File FileName="Assets/Scripts/Players/Tosser.cs" Line="18" Column="27" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Scripts" expanded="True">
-              <Node name="Environment" expanded="True">
-                <Node name="AudioPlayer.cs" selected="True" />
+              <Node name="Players" expanded="True">
+                <Node name="Tosser.cs" selected="True" />
               </Node>
             </Node>
           </Node>
