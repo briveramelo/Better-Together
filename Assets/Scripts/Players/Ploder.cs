@@ -15,8 +15,11 @@ public class Ploder : MonoBehaviour {
 	private bool ploding;
 	public bool Ploding{get{return ploding;}}
 	public Animator plosionAnimator;
-	public AudioSource explode;
-	public AudioSource implode;
+	public AudioSource plosionToPlay;
+	public GameObject plosionEffect;
+	public ParticleSystem fog;
+	public GameObject sphereEffect;
+	private Quaternion sphereQuaternion;
 
 	// Use this for initialization
 	void Awake () {
@@ -24,27 +27,32 @@ public class Ploder : MonoBehaviour {
 		plosionRadius = 10f;
 		collidersToPlode = new Collider[0];
 		GetCurrentControls();
+
+		sphereQuaternion = typeOfPlayer.PlayerType == PlayerType.Explo ? Quaternion.Euler (0f,25f,270f) : Quaternion.Euler (90f,180f,0f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if ( !ploding ){
-			if ( Input.GetButtonDown(controls.Action) ){
-				AudioSource plosionToPlay = typeOfPlayer.playerType == PlayerType.Explo ? explode : implode;
+			if ( Input.GetButton(controls.Action) ){
 				plosionToPlay.Play();
 				FindMoveableColliders();
 				AnimatePlosion();
 				Plode();
-				StartCoroutine (StallOnPlodingAgain());
 			}
 		}
 	}
 
 	public void AnimateSmallIdle(){
 		plosionAnimator.SetInteger("AnimState",0);
+		StartCoroutine(FinishPloding());
 	}
 	
 	public void AnimatePlosion(){
+		Instantiate (plosionEffect, transform.position,Quaternion.identity);
+		GameObject spherePulse = Instantiate (sphereEffect, transform.position,sphereQuaternion) as GameObject;
+		spherePulse.transform.parent = transform;
+		spherePulse.transform.localScale = transform.parent.localScale;
 		plosionAnimator.SetInteger("AnimState",1);
 	}
 
@@ -54,9 +62,17 @@ public class Ploder : MonoBehaviour {
 
 	public void AnimateBigIdle(){
 		plosionAnimator.SetInteger("AnimState",3);
+		StartCoroutine(FinishPloding());
+	}
+
+	IEnumerator FinishPloding(){
+		yield return null;
+		yield return null;
+		ploding = false;
 	}
 
 	void Plode(){
+		ploding = true;
 		foreach (Collider col in collidersToPlode){
 			if (col.attachedRigidbody){
 				float separationDistance = Vector3.Distance(transform.position,col.transform.position);
@@ -74,13 +90,7 @@ public class Ploder : MonoBehaviour {
 			}
 		}
 	}
-
-	IEnumerator StallOnPlodingAgain(){
-		ploding = true;
-		yield return new WaitForSeconds (2f);
-		ploding = false;
-	}
-
+	
 	float FindExponentMultiplier(float cutoffTolerance, float distanceAway){
 		return Mathf.Log(cutoffTolerance)/(-distanceAway);
 	}
@@ -102,4 +112,7 @@ public class Ploder : MonoBehaviour {
 		} 
 	}
 
+	void EmitFog(){
+		fog.Emit(10);
+	}
 }

@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void MoveSideways(float xAxisInput){
 		playerBody.AddForce(Vector3.right * xAxisInput * moveForce, ForceMode.VelocityChange);
-		transform.localScale = new Vector3(Mathf.Sign(xAxisInput),1f,1f);
+		//transform.localScale = new Vector3(Mathf.Sign(xAxisInput),1f,1f);
 	}
 
 	bool CheckForGround(){

@@ -8,7 +8,8 @@ public class GameObjectActivator : MonoBehaviour {
 		Input,
 		Collision,
 		TriggerCollider,
-		InputAndTrigger
+		InputAndTrigger,
+		TriggerColliderExit
 	}
 	public bool dependsOnPlayerType;
 	public TypeOfPlayer typeOfPlayer;
@@ -55,6 +56,18 @@ public class GameObjectActivator : MonoBehaviour {
 								}
 							}
 						}
+					}
+				}
+			}
+		}
+	}
+
+	void OnTriggerExit(Collider col){
+		if (triggerType == TriggerType.TriggerColliderExit){
+			if (col.gameObject.layer == Layers.player){
+				if (col.GetComponent<TypeOfPlayer>()){
+					if (!dependsOnPlayerType || col.GetComponent<TypeOfPlayer>().PlayerType == typeOfPlayer.PlayerType){
+						ActivateGameObjects();
 					}
 				}
 			}

@@ -8,7 +8,7 @@ public class Tosser : MonoBehaviour {
 	private Collider[] collidersToToss;
 	private float tossForce;
 	private float yFactor; 
-
+	private float xAxisInput;
 //	struct BackPack{
 //		public static BackPack empty = new BackPack(0,0);
 //
@@ -24,6 +24,11 @@ public class Tosser : MonoBehaviour {
 	void Awake(){
 		tossForce = 600f;
 		yFactor = 7.5f;
+	}
+
+	void Update(){
+		xAxisInput = Input.GetAxisRaw(controls.Horizontal);
+		transform.localScale = new Vector3(Mathf.Sign(xAxisInput),1f,1f);
 	}
 
 	void OnTriggerStay(Collider col){
