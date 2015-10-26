@@ -25,7 +25,58 @@ public class GameManager : MonoBehaviour {
 		private static Controls p2_Controls;
 		private static Controls explo_Controls;
 		private static Controls implo_Controls;
-		
+
+		#region ButtonNameToString
+		public static string ButtonNameToString(PlayerType playerType, InputButtonNames buttonName){
+			if (playerType == PlayerType.Explo){
+				if (buttonName == InputButtonNames.Action){
+					return "P1_Action";
+				}
+				else if (buttonName == InputButtonNames.Jump){
+					return "P1_Jump";
+				}
+				else if (buttonName == InputButtonNames.Toss){
+					return "P1_Toss";
+				}
+				else if (buttonName == InputButtonNames.Door){
+					return "P1_Door";
+				}
+				else if (buttonName == InputButtonNames.Pause){
+					return "P1_Pause";
+				}
+				else if (buttonName == InputButtonNames.ToggleCamera){
+					return "P1_ToggleCamera";
+				}
+				else{
+					return "P1_Restart";
+				}
+			}
+			else {
+				if (buttonName == InputButtonNames.Action){
+					return "P2_Action";
+				}
+				else if (buttonName == InputButtonNames.Jump){
+					return "P2_Jump";
+				}
+				else if (buttonName == InputButtonNames.Toss){
+					return "P2_Toss";
+				}
+				else if (buttonName == InputButtonNames.Door){
+					return "P2_Door";
+				}
+				else if (buttonName == InputButtonNames.Pause){
+					return "P2_Pause";
+				}
+				else if (buttonName == InputButtonNames.ToggleCamera){
+					return "P2_ToggleCamera";
+				}
+				else {
+					return "P2_Restart";
+				}
+			}
+		}
+		#endregion
+
 		public static Controls P1_Controls{
 			get{
 				return p1_Controls;

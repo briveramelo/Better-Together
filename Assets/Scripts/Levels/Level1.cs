@@ -11,6 +11,5 @@ public class Level1 : MonoBehaviour {
 	void Start () {
 		//AudioSource.PlayClipAtPoint(conradIntro,Camera.main.transform.position);
 		Physics.IgnoreCollision(imploCube,invisibleWalls);
-		//Physics.IgnoreLayerCollision(Players.implo.GetComponentInChildren,invisibleWalls);
 	}
 }

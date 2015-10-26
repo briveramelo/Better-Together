@@ -28,7 +28,7 @@ public class Tosser : MonoBehaviour {
 	void Awake(){
 		tossForce = 600f;
 		yFactor = 7.5f;
-		timeBeforeYouCanTossTheColliderAgain = 1f;
+		timeBeforeYouCanTossTheColliderAgain = .5f;
 		colliderstoToss = new List<Collider>();
 	}
 

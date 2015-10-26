@@ -5,6 +5,7 @@ public class Keyhole : MonoBehaviour {
 
 	public bool[] keys;
 	public bool activateOnTrigger;
+	public bool forDoors;
 	public MonoBehaviour[] scriptsToActivate;
 	public float activationTimeWindow;
 
@@ -22,7 +23,6 @@ public class Keyhole : MonoBehaviour {
 		foreach (bool key in keys){
 			if (!key){
 				return false;
-				break;
 			}
 		}
 		return true;
@@ -30,6 +30,11 @@ public class Keyhole : MonoBehaviour {
 
 	void OpenTheDoor(){
 		foreach (MonoBehaviour script in scriptsToActivate){
+			if (forDoors){
+				if (script as DoorLift){
+					(script as DoorLift).ResetPosition = false;
+				}
+			}
 			script.enabled = activateOnTrigger;
 		}
 	}

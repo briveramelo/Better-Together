@@ -95,8 +95,9 @@
      <Compile Include="Assets\Scripts\Cubes\BlockConverter_External.cs" />
      <Compile Include="Assets\Scripts\Cubes\BlockConverter_Internal.cs" />
      <Compile Include="Assets\Scripts\Cubes\BlockType.cs" />
+     <Compile Include="Assets\Scripts\Environment\Activator.cs" />
      <Compile Include="Assets\Scripts\Environment\AmbientLightSwitch.cs" />
-     <Compile Include="Assets\Scripts\Environment\AudioPlayer.cs" />
+     <Compile Include="Assets\Scripts\Environment\AudioActivator.cs" />
      <Compile Include="Assets\Scripts\Environment\ButtonActivator.cs" />
      <Compile Include="Assets\Scripts\Environment\CheckPoint.cs" />
      <Compile Include="Assets\Scripts\Environment\DeathTrap.cs" />
@@ -112,7 +113,6 @@
      <Compile Include="Assets\Scripts\Players\Controls.cs" />
      <Compile Include="Assets\Scripts\Players\Pause.cs" />
      <Compile Include="Assets\Scripts\Players\PlayerMovement.cs" />
-     <Compile Include="Assets\Scripts\Players\PlayerType.cs" />
      <Compile Include="Assets\Scripts\Players\Ploder.cs" />
      <Compile Include="Assets\Scripts\Players\RestartLevel.cs" />
      <Compile Include="Assets\Scripts\Players\StaticUpdater.cs" />
@@ -126,10 +126,12 @@
      <Compile Include="Assets\Scripts\UI\UIManager_InGame.cs" />
      <Compile Include="Assets\Scripts\UI\UI_Animation.cs" />
      <Compile Include="Assets\Scripts\UI\UI_Input.cs" />
-     <Compile Include="Assets\Scripts\Utilities\ActivationTriggers.cs" />
      <Compile Include="Assets\Scripts\Utilities\AnimateTexture.cs" />
      <Compile Include="Assets\Scripts\Utilities\ButtonStatics.cs" />
-     <Compile Include="Assets\Scripts\Utilities\ButtonType.cs" />
+     <Compile Include="Assets\Scripts\Utilities\Enums\ButtonTypes.cs" />
+     <Compile Include="Assets\Scripts\Utilities\Enums\InputButtonNames.cs" />
+     <Compile Include="Assets\Scripts\Utilities\Enums\PlayerTypes.cs" />
+     <Compile Include="Assets\Scripts\Utilities\Enums\TriggerTypes.cs" />
      <Compile Include="Assets\Scripts\Utilities\GenericFunctions.cs" />
      <Compile Include="Assets\Scripts\Utilities\Gizmo_Sphere.cs" />
      <Compile Include="Assets\Scripts\Utilities\PivotSetter.cs" />

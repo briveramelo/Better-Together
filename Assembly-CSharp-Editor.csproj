@@ -46,7 +46,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\CurvePropertyDrawer.cs" />
+     <Compile Include="Assets\Editor\Scripts\Activator_Editor.cs" />
+     <Compile Include="Assets\Editor\Scripts\AudioActivator_Editor.cs" />
+     <Compile Include="Assets\Editor\Scripts\ButtonActivator_Editor.cs" />
      <Compile Include="Assets\Editor\Scripts\EffectSettingsEditor.cs" />
+     <Compile Include="Assets\Editor\Scripts\GameObjectActivator_Editor.cs" />
+     <Compile Include="Assets\Editor\Scripts\ScriptActivator_Editor.cs" />
      <None Include="Assets\Realistic Effects Pack\Shaders\IceVert 1.shader" />
      <None Include="Assets\Realistic Effects Pack\Shaders\GlowAdditive.shader" />
      <None Include="Assets\Realistic Effects Pack\Shaders\Matrix\Additive.shader" />

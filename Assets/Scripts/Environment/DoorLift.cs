@@ -9,11 +9,9 @@ public class DoorLift : MonoBehaviour {
 	public float moveSpeed;
 	public bool resetPosition;
 	public DoorLift resetDoorScript;
-	private Vector3 startPosition;
 	public AudioSource doorLiftNoise;
 
 	void OnEnable(){
-		startPosition = transform.position;
 		if (doorLiftNoise){
 			doorLiftNoise.Play();
 		}
@@ -21,10 +19,11 @@ public class DoorLift : MonoBehaviour {
 	}
 
 	IEnumerator LiftUp(){
-		while (Vector3.Distance(startPosition,targetTransform.position)>0.01f){
+		while (Vector3.Distance(transform.position,targetTransform.position)>0.02f){
 			transform.position = Vector3.MoveTowards(transform.position,targetTransform.position,moveSpeed);
 			yield return null;
 		}
+		transform.position = targetTransform.position;
 		if (doorLiftNoise){
 			doorLiftNoise.Stop();
 		}
@@ -35,5 +34,11 @@ public class DoorLift : MonoBehaviour {
 		}
 		yield return null;
 		this.enabled = false;
+	}
+
+	public bool ResetPosition{
+		set{
+			resetPosition = value;
+		}
 	}
 }
