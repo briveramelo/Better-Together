@@ -7,6 +7,8 @@ public class DoorLift : MonoBehaviour {
 
 	[Range(0.01f,0.1f)]
 	public float moveSpeed;
+	public bool resetPosition;
+	public DoorLift resetDoorScript;
 	private Vector3 startPosition;
 	public AudioSource doorLiftNoise;
 
@@ -26,6 +28,12 @@ public class DoorLift : MonoBehaviour {
 		if (doorLiftNoise){
 			doorLiftNoise.Stop();
 		}
+		if (resetPosition){
+			if (resetDoorScript){
+				resetDoorScript.enabled = true;
+			}
+		}
 		yield return null;
+		this.enabled = false;
 	}
 }

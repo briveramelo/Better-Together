@@ -16,7 +16,6 @@ public class CameraMovement : MonoBehaviour {
 	private float lastForwardPosition;
 	private float lastBackwardPosition;
 	private float switchCameraAngleDistance;
-	private bool doingCinematics;
 
 	// Use this for initialization
 	void Awake () {
@@ -57,19 +56,17 @@ public class CameraMovement : MonoBehaviour {
 	}
 
 	void SwitchToOtherPlayer(){
-		if (!doingCinematics){
-			if (playerControlsForCamera.IsExplo){
-				targetTransformPosition = Players.implo_CameraAnchor;
-				targetTransformLookSpot = Players.implo_CameraLookSpot;
-				playerControlsForCamera = GameManager.StaticControls.Implo_Controls;
-				Players.dominantPlayer = PlayerType.Implo;
-			}
-			else{
-				targetTransformPosition = Players.explo_CameraAnchor;
-				targetTransformLookSpot = Players.explo_CameraLookSpot;
-				playerControlsForCamera = GameManager.StaticControls.Explo_Controls;
-				Players.dominantPlayer = PlayerType.Explo;
-			}
+		if (playerControlsForCamera.IsExplo){
+			targetTransformPosition = Players.implo_CameraAnchor;
+			targetTransformLookSpot = Players.implo_CameraLookSpot;
+			playerControlsForCamera = GameManager.StaticControls.Implo_Controls;
+			Players.dominantPlayer = PlayerType.Implo;
+		}
+		else{
+			targetTransformPosition = Players.explo_CameraAnchor;
+			targetTransformLookSpot = Players.explo_CameraLookSpot;
+			playerControlsForCamera = GameManager.StaticControls.Explo_Controls;
+			Players.dominantPlayer = PlayerType.Explo;
 		}
 	}
 

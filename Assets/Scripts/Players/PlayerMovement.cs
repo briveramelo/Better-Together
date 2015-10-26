@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour {
 #endregion
 
 	#region Initialize Variables
-	public TypeOfPlayer typeOfPlayer;
+	public PlayerType playerType;
 	public Transform feet;
 	public Ploder ploderScript;
 
@@ -35,21 +35,28 @@ public class PlayerMovement : MonoBehaviour {
 
 		groundCheckHeight = 0.2f;
 		groundCheckMask = LayerMask.GetMask("Player","Ground","Blocks");
-		SetSpeed(typeOfPlayer.PlayerType);
+		SetSpeed();
 
-		if (typeOfPlayer.PlayerType == PlayerType.Explo){
+		if (playerType == PlayerType.Explo){
 			Players.explo = gameObject;
-			controls = GameManager.StaticControls.Explo_Controls;
 		}
 		else{
 			Players.implo = gameObject;
-			controls = GameManager.StaticControls.Implo_Controls;
 		}
-
+		GetCurrentControls();
 	}
 	#endregion
 
-	void SetSpeed(PlayerType playerType){
+	public void GetCurrentControls(){
+		if (playerType == PlayerType.Explo){
+			controls = GameManager.StaticControls.Explo_Controls;
+		}
+		else{
+			controls = GameManager.StaticControls.Implo_Controls;
+		} 
+	}
+
+	void SetSpeed(){
 		if (playerType == PlayerType.Explo){
 			//explosive jump, moderate running
 			maxSpeed = 5f;
@@ -114,12 +121,5 @@ public class PlayerMovement : MonoBehaviour {
 //		Debug.DrawRay(feet.position - transform.right*0.3f + Vector3.up*0.5f,Vector3.down*(0.5f+groundCheckHeight));
 //	}
 
-	public void GetCurrentControls(){
-		if (typeOfPlayer.PlayerType == PlayerType.Explo){
-			controls = GameManager.StaticControls.Explo_Controls;
-		}
-		else{
-			controls = GameManager.StaticControls.Implo_Controls;
-		} 
-	}
+
 }

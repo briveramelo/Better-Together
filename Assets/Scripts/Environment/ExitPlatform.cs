@@ -49,6 +49,10 @@ public class ExitPlatform : MonoBehaviour {
 		Players.implo.GetComponent<PlayerMovement>().enabled = false;
 		Players.implo.GetComponent<Pause>().enabled = false;
 		Players.implo.GetComponentInChildren<Ploder>().enabled = false;
+
+		Players.explo_y_Button.SetActive(false);
+		Players.implo_y_Button.SetActive(false);
+
 		SetAnimationParent();
 		AudioSource cameraAudio = Camera.main.GetComponent<AudioSource>();
 		cameraAudio.enabled = true;

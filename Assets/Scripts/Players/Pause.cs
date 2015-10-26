@@ -4,10 +4,19 @@ using GenericFunctions;
 public class Pause : MonoBehaviour {
 
 	private Controls controls;
-	public TypeOfPlayer typeOfPlayer;
+	public PlayerType playerType;
 
 	void Awake(){
 		GetCurrentControls();
+	}
+
+	public void GetCurrentControls(){
+		if (playerType == PlayerType.Explo){
+			controls = GameManager.StaticControls.Explo_Controls;
+		}
+		else{
+			controls = GameManager.StaticControls.Implo_Controls;
+		} 
 	}
 
 	void Update () {
@@ -28,14 +37,5 @@ public class Pause : MonoBehaviour {
 				aud.UnPause();
 			}
 		}
-	}
-
-	public void GetCurrentControls(){
-		if (typeOfPlayer.PlayerType == PlayerType.Explo){
-			controls = GameManager.StaticControls.Explo_Controls;
-		}
-		else{
-			controls = GameManager.StaticControls.Implo_Controls;
-		} 
 	}
 }

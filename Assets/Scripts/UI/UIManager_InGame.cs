@@ -6,6 +6,10 @@ public class UIManager_InGame : MonoBehaviour {
 	public GameObject controlImage;
 	public GameObject pauseMenu;
 
+	void Awake(){
+		LevelItems.pauseMenu = pauseMenu;
+	}
+
 	public void Continue(){
 		UnPause();
 		pauseMenu.SetActive(false);

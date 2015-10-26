@@ -95,12 +95,16 @@
      <Compile Include="Assets\Scripts\Cubes\BlockConverter_External.cs" />
      <Compile Include="Assets\Scripts\Cubes\BlockConverter_Internal.cs" />
      <Compile Include="Assets\Scripts\Cubes\BlockType.cs" />
+     <Compile Include="Assets\Scripts\Environment\AmbientLightSwitch.cs" />
      <Compile Include="Assets\Scripts\Environment\AudioPlayer.cs" />
+     <Compile Include="Assets\Scripts\Environment\ButtonActivator.cs" />
      <Compile Include="Assets\Scripts\Environment\CheckPoint.cs" />
      <Compile Include="Assets\Scripts\Environment\DeathTrap.cs" />
      <Compile Include="Assets\Scripts\Environment\DoorLift.cs" />
      <Compile Include="Assets\Scripts\Environment\ExitPlatform.cs" />
      <Compile Include="Assets\Scripts\Environment\GameObjectActivator.cs" />
+     <Compile Include="Assets\Scripts\Environment\Key.cs" />
+     <Compile Include="Assets\Scripts\Environment\Keyhole.cs" />
      <Compile Include="Assets\Scripts\Environment\PlayerRespawner.cs" />
      <Compile Include="Assets\Scripts\Environment\ScriptActivator.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
@@ -108,7 +112,6 @@
      <Compile Include="Assets\Scripts\Players\Controls.cs" />
      <Compile Include="Assets\Scripts\Players\Pause.cs" />
      <Compile Include="Assets\Scripts\Players\PlayerMovement.cs" />
-     <Compile Include="Assets\Scripts\Players\PlayerState.cs" />
      <Compile Include="Assets\Scripts\Players\PlayerType.cs" />
      <Compile Include="Assets\Scripts\Players\Ploder.cs" />
      <Compile Include="Assets\Scripts\Players\RestartLevel.cs" />
@@ -120,14 +123,15 @@
      <Compile Include="Assets\Scripts\UI\HomeScreen.cs" />
      <Compile Include="Assets\Scripts\UI\LevelSelector.cs" />
      <Compile Include="Assets\Scripts\UI\PlaySound.cs" />
-     <Compile Include="Assets\Scripts\UI\StaticSetter.cs" />
      <Compile Include="Assets\Scripts\UI\UIManager_InGame.cs" />
      <Compile Include="Assets\Scripts\UI\UI_Animation.cs" />
      <Compile Include="Assets\Scripts\UI\UI_Input.cs" />
+     <Compile Include="Assets\Scripts\Utilities\ActivationTriggers.cs" />
      <Compile Include="Assets\Scripts\Utilities\AnimateTexture.cs" />
-     <Compile Include="Assets\Scripts\Utilities\ButtonActivator.cs" />
      <Compile Include="Assets\Scripts\Utilities\ButtonStatics.cs" />
+     <Compile Include="Assets\Scripts\Utilities\ButtonType.cs" />
      <Compile Include="Assets\Scripts\Utilities\GenericFunctions.cs" />
+     <Compile Include="Assets\Scripts\Utilities\Gizmo_Sphere.cs" />
      <Compile Include="Assets\Scripts\Utilities\PivotSetter.cs" />
      <Compile Include="Assets\Scripts\Utilities\SwitchControls.cs" />
      <None Include="Assets\Realistic Effects Pack\Shaders\IceVert 1.shader" />
@@ -179,17 +183,11 @@
      <None Include="Assets\Realistic Effects Pack\Shaders\WaterFree.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendForBloom.shader" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

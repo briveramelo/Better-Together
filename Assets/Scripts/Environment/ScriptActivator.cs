@@ -3,12 +3,7 @@ using System.Collections;
 using GenericFunctions;
 
 public class ScriptActivator : MonoBehaviour {
-	
-	public enum TriggerType{
-		Input,
-		Collision,
-		TriggerCollider,
-	}
+
 	public TriggerType triggerType;
 	public MonoBehaviour[] scriptsToActivate;
 	public string[] inputStrings;
@@ -19,18 +14,22 @@ public class ScriptActivator : MonoBehaviour {
 	private bool done;
 
 	void OnCollisionEnter(Collision col){
-		if (triggerType == TriggerType.Collision){
-			if (oneOff && !done || !oneOff){
-				ActivateScripts();
+		if (enabled){
+			if (triggerType == TriggerType.Collision){
+				if (oneOff && !done || !oneOff){
+					ActivateScripts();
+				}
 			}
 		}
 	}
 	
 	void OnTriggerEnter(Collider col){
-		if (triggerType == TriggerType.TriggerCollider){
-			if (col.gameObject.layer == Layers.player){
-				if (oneOff && !done || !oneOff){
-					ActivateScripts();
+		if (enabled){
+			if (triggerType == TriggerType.TriggerCollider){
+				if (col.gameObject.layer == Layers.player){
+					if (oneOff && !done || !oneOff){
+						ActivateScripts();
+					}
 				}
 			}
 		}
@@ -49,10 +48,14 @@ public class ScriptActivator : MonoBehaviour {
 	}
 
 	void ActivateScripts(){
-		noise.Play();
+		if (noise){
+			noise.Play();
+		}
 		done = true;
 		foreach (MonoBehaviour scriptToActivate in scriptsToActivate){
-			scriptToActivate.enabled = activateOnTrigger;
+			if (scriptToActivate){
+				scriptToActivate.enabled = activateOnTrigger;
+			}
 		}
 	}
 }

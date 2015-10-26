@@ -3,16 +3,9 @@ using System.Collections;
 using GenericFunctions;
 
 public class GameObjectActivator : MonoBehaviour {
-
-	public enum TriggerType{
-		Input,
-		Collision,
-		TriggerCollider,
-		InputAndTrigger,
-		TriggerColliderExit
-	}
+	
 	public bool dependsOnPlayerType;
-	public TypeOfPlayer typeOfPlayer;
+	public PlayerType playerType;
 	public TriggerType triggerType;
 	public GameObject[] objectsToActivate;
 	public string[] inputStrings;
@@ -23,19 +16,23 @@ public class GameObjectActivator : MonoBehaviour {
 	private bool done;
 
 	void OnCollisionEnter(Collision col){
-		if (triggerType == TriggerType.Collision){
-			if (oneOff && !done || !oneOff){
-				ActivateGameObjects();
+		if (enabled){
+			if (triggerType == TriggerType.Collision){
+				if (oneOff && !done || !oneOff){
+					ActivateGameObjects();
+				}
 			}
 		}
 	}
 
 	void OnTriggerEnter(Collider col){
-		if (triggerType == TriggerType.TriggerCollider){
-			if (col.gameObject.layer == Layers.player){
-				if (!dependsOnPlayerType || col.GetComponent<TypeOfPlayer>().PlayerType == typeOfPlayer.PlayerType){
-					if (oneOff && !done || !oneOff){
-						ActivateGameObjects();
+		if (enabled){
+			if (triggerType == TriggerType.TriggerCollider){
+				if (col.gameObject.layer == Layers.player){
+					if (!dependsOnPlayerType || col.GetComponent<TypeOfPlayer>().PlayerType == playerType){
+						if (oneOff && !done || !oneOff){
+							ActivateGameObjects();
+						}
 					}
 				}
 			}
@@ -43,15 +40,17 @@ public class GameObjectActivator : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider col){
-		if (triggerType == TriggerType.InputAndTrigger){
-			if (col.gameObject.layer == Layers.player){
-				if (col.GetComponent<TypeOfPlayer>()){
-					if (!dependsOnPlayerType || col.GetComponent<TypeOfPlayer>().PlayerType == typeOfPlayer.PlayerType){
-						if (triggerType == TriggerType.InputAndTrigger){
-							if (oneOff && !done || !oneOff){
-								foreach (string inputString in inputStrings){
-									if (Input.GetButtonDown(inputString)){
-										ActivateGameObjects();
+		if (enabled){
+			if (triggerType == TriggerType.InputAndTrigger){
+				if (col.gameObject.layer == Layers.player){
+					if (col.GetComponent<TypeOfPlayer>()){
+						if (!dependsOnPlayerType || col.GetComponent<TypeOfPlayer>().PlayerType == playerType){
+							if (triggerType == TriggerType.InputAndTrigger){
+								if (oneOff && !done || !oneOff){
+									foreach (string inputString in inputStrings){
+										if (Input.GetButtonDown(inputString)){
+											ActivateGameObjects();
+										}
 									}
 								}
 							}
@@ -63,11 +62,13 @@ public class GameObjectActivator : MonoBehaviour {
 	}
 
 	void OnTriggerExit(Collider col){
-		if (triggerType == TriggerType.TriggerColliderExit){
-			if (col.gameObject.layer == Layers.player){
-				if (col.GetComponent<TypeOfPlayer>()){
-					if (!dependsOnPlayerType || col.GetComponent<TypeOfPlayer>().PlayerType == typeOfPlayer.PlayerType){
-						ActivateGameObjects();
+		if (enabled){
+			if (triggerType == TriggerType.TriggerColliderExit){
+				if (col.gameObject.layer == Layers.player){
+					if (col.GetComponent<TypeOfPlayer>()){
+						if (!dependsOnPlayerType || col.GetComponent<TypeOfPlayer>().PlayerType == playerType){
+							ActivateGameObjects();
+						}
 					}
 				}
 			}

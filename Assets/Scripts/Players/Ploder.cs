@@ -5,7 +5,7 @@ using System.Linq;
 
 public class Ploder : MonoBehaviour {
 
-	public TypeOfPlayer typeOfPlayer;
+	public PlayerType playerType;
 	public PlayerMovement playerMovement;
 	private Collider[] collidersToPlode;
 	
@@ -28,7 +28,7 @@ public class Ploder : MonoBehaviour {
 		collidersToPlode = new Collider[0];
 		GetCurrentControls();
 
-		sphereQuaternion = typeOfPlayer.PlayerType == PlayerType.Explo ? Quaternion.Euler (0f,25f,270f) : Quaternion.Euler (90f,180f,0f);
+		sphereQuaternion = playerType == PlayerType.Explo ? Quaternion.Euler (0f,25f,270f) : Quaternion.Euler (90f,180f,0f);
 	}
 	
 	// Update is called once per frame
@@ -78,7 +78,7 @@ public class Ploder : MonoBehaviour {
 				float separationDistance = Vector3.Distance(transform.position,col.transform.position);
 				Vector3 plosionDirection;
 				float plosionForce;
-				if (typeOfPlayer.PlayerType == PlayerType.Explo){
+				if (playerType == PlayerType.Explo){
 					plosionDirection = (col.transform.position - transform.position).normalized;
 					plosionForce = baselinePlodeForce * Mathf.Clamp01(1-separationDistance/plosionRadius);
 				}
@@ -98,13 +98,13 @@ public class Ploder : MonoBehaviour {
 	void FindMoveableColliders(){
 		collidersToPlode = Physics.OverlapSphere (transform.position,plosionRadius,-1,QueryTriggerInteraction.Ignore); 
 		collidersToPlode = collidersToPlode.Where(foundCollider => (foundCollider.tag == Tags.moveableObjects || 
-		                                                           (foundCollider.tag == Tags.explode_Objects && typeOfPlayer.PlayerType == PlayerType.Explo) || 
-		                                                           (foundCollider.tag == Tags.implode_Objects && typeOfPlayer.PlayerType == PlayerType.Implo))).ToArray();
+		                                                           (foundCollider.tag == Tags.explode_Objects && playerType == PlayerType.Explo) || 
+		                                                           (foundCollider.tag == Tags.implode_Objects && playerType == PlayerType.Implo))).ToArray();
 
 	}
 
 	public void GetCurrentControls(){
-		if (typeOfPlayer.PlayerType == PlayerType.Explo){
+		if (playerType == PlayerType.Explo){
 			controls = GameManager.StaticControls.Explo_Controls;
 		}
 		else{

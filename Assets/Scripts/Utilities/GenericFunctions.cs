@@ -34,10 +34,12 @@ namespace GenericFunctions{
 		public static Transform implo_CameraAnchor;
 		public static Transform implo_CameraLookSpot;
 
-		public static GameObject explo_x_button;
-		public static GameObject explo_y_button;
-		public static GameObject implo_x_button;
-		public static GameObject implo_y_button;
+		public static GameObject explo_x_Button;
+		public static GameObject explo_y_Button;
+		public static GameObject explo_b_Button;
+		public static GameObject implo_x_Button;
+		public static GameObject implo_y_Button;
+		public static GameObject implo_b_Button;
 
 
 		public static PlayerType dominantPlayer;
