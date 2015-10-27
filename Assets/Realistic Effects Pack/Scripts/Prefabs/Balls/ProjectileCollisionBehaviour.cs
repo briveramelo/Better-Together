@@ -108,8 +108,10 @@ public class ProjectileCollisionBehaviour : MonoBehaviour
       forwardDirection = tRoot.position + (tTarget.position + randomTargetOffsetXZVector - tRoot.position).normalized * effectSettings.MoveDistance;
       GetTargetHit();
     }
-    else
-      forwardDirection = tRoot.position + effectSettings.MoveVector * effectSettings.MoveDistance;
+    else{
+		forwardDirection = tRoot.position + effectSettings.MoveVector * effectSettings.MoveDistance;
+			Debug.Log (forwardDirection.ToString());
+	}
 
     if (IsLookAt) {
       if(!effectSettings.UseMoveVector) tRoot.LookAt(tTarget);
@@ -143,6 +145,7 @@ public class ProjectileCollisionBehaviour : MonoBehaviour
     }
 
     var direction = (endPoint - tRoot.position).normalized;
+		Debug.Log (direction.ToString());
     RaycastHit raycastHit;
     if (Physics.Raycast(tRoot.position, direction, out raycastHit, distanceNextFrame + effectSettings.ColliderRadius, effectSettings.LayerMask)) {
       hit = raycastHit;

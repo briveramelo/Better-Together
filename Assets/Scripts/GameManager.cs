@@ -104,4 +104,5 @@ public class GameManager : MonoBehaviour {
 		public static Controls Implo_Controls{get{return implo_Controls;}}
 	}
 	#endregion
+
 }

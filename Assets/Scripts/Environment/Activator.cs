@@ -6,6 +6,7 @@ public class Activator : MonoBehaviour {
 	public bool dependsOnPlayerType;
 	public PlayerType playerType;
 	public TriggerType triggerType;
+	public LayerMask layerMask;
 	public InputButtonNames inputButton;
 	public bool activateOnTrigger;
 	public bool oneOff;

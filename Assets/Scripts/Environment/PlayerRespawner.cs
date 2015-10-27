@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using GenericFunctions;
+
 public class PlayerRespawner : MonoBehaviour {
 
 	public GameObject explo;
@@ -10,9 +11,15 @@ public class PlayerRespawner : MonoBehaviour {
 	private int currentCheckPointNumber;
 
 	public Transform[] checkPoints; 
-	
+
+	void Awake(){
+		LevelItems.playerRespawner = this;
+	}
+
 	public void RespawnPlayer(PlayerType playerType){
-		StartCoroutine(RespawnMe(playerType));
+		if (this){
+			StartCoroutine(RespawnMe(playerType));
+		}
 	}
 
 	IEnumerator RespawnMe(PlayerType playerType){

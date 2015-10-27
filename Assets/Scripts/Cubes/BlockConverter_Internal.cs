@@ -34,7 +34,7 @@ public class BlockConverter_Internal : MonoBehaviour {
 			myRenderer.material = cubeMaterials[2];
 		}
 		else if (blockType == BlockType.Moveable){
-			gameObject.tag = Tags.moveableObjects;
+			gameObject.tag = Tags.moveable_Objects;
 			myRenderer.material = cubeMaterials[3];
 		}
 	}

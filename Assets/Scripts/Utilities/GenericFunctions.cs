@@ -1,4 +1,4 @@
-﻿#region Declaration;
+﻿#region Declaration
 using UnityEngine;
 using System.Collections;
 
@@ -10,17 +10,23 @@ namespace GenericFunctions{
 		public static string immoveable_Objects = "Immoveable";
 		public static string explode_Objects = "Moveable_Explo";
 		public static string implode_Objects = "Moveable_Implo";
-		public static string moveableObjects = "Moveable";
+		public static string moveable_Objects = "Moveable";
 	}
 	#endregion
 
 	#region Layers (ints)
 	public static class Layers{
-		public static int player = 8;
-		public static int ground = 9;
-		public static int invisibleWAlls = 10;
-		public static int feet = 11;
-		public static int blocks = 12;
+		public const int player = 8;
+		public const int ground = 9;
+		public const int invisibleWalls = 10;
+		public const int feet = 11;
+		public const int blocks = 12;
+
+		public static string playerString = "Player";
+		public static string groundString = "Ground";
+		public static string invisibleWallsString = "InvisibleWalls";
+		public static string feetString = "Feet";
+		public static string blocksString = "Blocks";
 	}
 	#endregion
 
@@ -71,6 +77,14 @@ namespace GenericFunctions{
 	#region LevelItems
 	public static class LevelItems{
 		public static GameObject pauseMenu;
+		public static PlayerRespawner playerRespawner;
+	}
+	#endregion
+
+	#region GameColors
+	public static class GameColors{
+		public static Color cameraBackground = new Color(71f/255f,71f/255f,71f/255f,1f);
+		public static Color darkCloset = new Color(21f/255f,21f/255f,21f/255f,1f);
 	}
 	#endregion
 

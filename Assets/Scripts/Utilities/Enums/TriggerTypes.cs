@@ -5,5 +5,6 @@
 	Input,
 	InputAndOnTriggerStay,
 	OnEnable,
-	OnTriggerStay
+	OnTriggerStay,
+	OnTripWire
 }

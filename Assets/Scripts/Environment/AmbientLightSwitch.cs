@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using GenericFunctions;
 
 public class AmbientLightSwitch : MonoBehaviour {
 
@@ -15,5 +16,6 @@ public class AmbientLightSwitch : MonoBehaviour {
 
 	public void ChangeAmbientLight(){
 		RenderSettings.ambientIntensity = intensity;
+		Camera.main.backgroundColor = GameColors.darkCloset;
 	}
 }

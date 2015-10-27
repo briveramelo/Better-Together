@@ -121,5 +121,4 @@ public class PlayerMovement : MonoBehaviour {
 //		Debug.DrawRay(feet.position - transform.right*0.3f + Vector3.up*0.5f,Vector3.down*(0.5f+groundCheckHeight));
 //	}
 
-
 }

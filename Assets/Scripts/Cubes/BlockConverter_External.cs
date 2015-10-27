@@ -8,7 +8,7 @@ public class BlockConverter_External : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		if ((col.gameObject.CompareTag(Tags.explode_Objects)||
 		    col.gameObject.CompareTag(Tags.implode_Objects)||
-		    col.gameObject.CompareTag(Tags.moveableObjects))&&
+		    col.gameObject.CompareTag(Tags.moveable_Objects))&&
 		    (!col.gameObject.CompareTag(convertToThisBlock.ToString()))){
 
 			col.GetComponent<BlockConverter_Internal>().BeginBlockConversion(convertToThisBlock);

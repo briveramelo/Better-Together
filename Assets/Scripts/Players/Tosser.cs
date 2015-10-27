@@ -53,7 +53,7 @@ public class Tosser : MonoBehaviour {
 			colliderstoToss.Add(col);
 			Vector3 tossDir = new Vector3 (-xDir,yFactor,0f).normalized;
 			Rigidbody boxBody = col.GetComponent<Rigidbody>();
-			boxBody.velocity =Vector3.zero;
+			//boxBody.velocity =Vector3.zero;
 			boxBody.AddForce(tossDir * tossForce);
 			StartCoroutine (RemoveColliderDelayed(col));
 		}

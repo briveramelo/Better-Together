@@ -97,7 +97,7 @@ public class Ploder : MonoBehaviour {
 	
 	void FindMoveableColliders(){
 		collidersToPlode = Physics.OverlapSphere (transform.position,plosionRadius,-1,QueryTriggerInteraction.Ignore); 
-		collidersToPlode = collidersToPlode.Where(foundCollider => (foundCollider.tag == Tags.moveableObjects || 
+		collidersToPlode = collidersToPlode.Where(foundCollider => (foundCollider.tag == Tags.moveable_Objects || 
 		                                                           (foundCollider.tag == Tags.explode_Objects && playerType == PlayerType.Explo) || 
 		                                                           (foundCollider.tag == Tags.implode_Objects && playerType == PlayerType.Implo))).ToArray();
 
