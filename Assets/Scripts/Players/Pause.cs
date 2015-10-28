@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using GenericFunctions;
+
 public class Pause : MonoBehaviour {
+
 
 	private Controls controls;
 	public PlayerType playerType;

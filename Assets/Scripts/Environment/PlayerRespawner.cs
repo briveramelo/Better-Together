@@ -18,7 +18,9 @@ public class PlayerRespawner : MonoBehaviour {
 
 	public void RespawnPlayer(PlayerType playerType){
 		if (this){
-			StartCoroutine(RespawnMe(playerType));
+			if (isActiveAndEnabled){
+				StartCoroutine(RespawnMe(playerType));
+			}
 		}
 	}
 

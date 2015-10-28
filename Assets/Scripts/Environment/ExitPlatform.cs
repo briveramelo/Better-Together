@@ -44,10 +44,8 @@ public class ExitPlatform : MonoBehaviour {
 	IEnumerator EndTheLevel(){
 		levelComplete = true;
 		Players.explo.GetComponent<PlayerMovement>().enabled = false;
-		Players.explo.GetComponent<Pause>().enabled = false;
 		Players.explo.GetComponentInChildren<Ploder>().enabled = false;
 		Players.implo.GetComponent<PlayerMovement>().enabled = false;
-		Players.implo.GetComponent<Pause>().enabled = false;
 		Players.implo.GetComponentInChildren<Ploder>().enabled = false;
 
 		Players.explo_y_Button.SetActive(false);
