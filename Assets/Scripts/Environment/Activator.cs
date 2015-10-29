@@ -1,8 +1,12 @@
-﻿using UnityEngine;
+﻿#region Declaration
+using UnityEngine;
 using System.Collections;
 using GenericFunctions;
 public class Activator : MonoBehaviour {
+#endregion
 
+
+	#region Initialize Variables
 	public bool dependsOnPlayerType;
 	public PlayerType playerType;
 	public TriggerType triggerType;
@@ -14,20 +18,30 @@ public class Activator : MonoBehaviour {
 	private string inputString;
 	protected bool done;
 
-	protected virtual void ActivateObjects(){
-
-	}
-
 	void Awake(){
 		inputString = GameManager.StaticControls.ButtonNameToString(playerType,inputButton);
 	}
-	
+	#endregion
+
+	#region Establish Overwriteable Function
+	protected virtual void ActivateObjects(){
+
+	}
+	#endregion
+
+	#region Triggers
+	//code?
+	#endregion
+
+		#region OnEnable Trigger
 	void OnEnable(){
 		if (triggerType == TriggerType.OnEnable){
 			ActivateObjects();
 		}
 	}
-	
+		#endregion
+
+		#region OnCollisionEnter Trigger
 	void OnCollisionEnter(Collision col){
 		if (enabled){
 			if (triggerType == TriggerType.OnCollision){
@@ -37,7 +51,9 @@ public class Activator : MonoBehaviour {
 			}
 		}
 	}
-	
+		#endregion
+
+		#region OnTriggerEnter Trigger	
 	void OnTriggerEnter(Collider col){
 		if (enabled){
 			if (triggerType == TriggerType.OnTriggerEnter){
@@ -51,7 +67,9 @@ public class Activator : MonoBehaviour {
 			}
 		}
 	}
-	
+		#endregion
+
+		#region OnTriggerStay Trigger
 	void OnTriggerStay(Collider col){
 		if (enabled){
 			if (triggerType == TriggerType.InputAndOnTriggerStay || triggerType == TriggerType.OnTriggerStay){
@@ -74,7 +92,9 @@ public class Activator : MonoBehaviour {
 			}
 		}
 	}
-	
+		#endregion
+
+		#region OnTriggerExit Trigger
 	void OnTriggerExit(Collider col){
 		if (enabled){
 			if (triggerType == TriggerType.OnTriggerExit){
@@ -88,7 +108,9 @@ public class Activator : MonoBehaviour {
 			}
 		}
 	}
-	
+		#endregion
+
+		#region Input Trigger
 	void Update(){
 		if (triggerType == TriggerType.Input){
 			if (oneOff && !done || !oneOff){
@@ -98,4 +120,5 @@ public class Activator : MonoBehaviour {
 			}
 		}
 	}
+		#endregion
 }

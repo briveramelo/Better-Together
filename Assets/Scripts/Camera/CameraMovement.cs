@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿#region Declaration
+using UnityEngine;
 using System.Collections;
 using GenericFunctions;
 public class CameraMovement : MonoBehaviour {
+#endregion
 
+	#region Initialize Variables
 	public Transform targetTransformPosition;
 	public Transform targetTransformLookSpot;
 	[Range (0,1)]
@@ -18,19 +21,16 @@ public class CameraMovement : MonoBehaviour {
 	private float switchCameraAngleDistance;
 
 	// Use this for initialization
-	void Awake () {
-		playerControlsForCamera = GameManager.StaticControls.Explo_Controls;
+	void Start () {
+		playerControlsForCamera = Players.dominantPlayer == PlayerType.Explo ? GameManager.StaticControls.Explo_Controls : GameManager.StaticControls.Implo_Controls;
 		lerpMoveFraction = 0.075f;
 		lerpRotationFraction = 0.035f;
 		switchCameraAngleDistance = 1f;
 	}
+	#endregion
 
-	void Update(){
-		if (Input.GetButtonDown(playerControlsForCamera.ToggleCamera)){
-			SwitchToOtherPlayer();
-		}
-	}
 
+	#region Lerp Camera Position
 	//FIXED UPDATE SO GOOD FOR LERP!
 	void FixedUpdate () {
 		if (targetTransformPosition){
@@ -54,7 +54,22 @@ public class CameraMovement : MonoBehaviour {
 			SwitchToOtherPlayer();
 		}
 	}
+	#endregion
 
+
+	#region Toggle Camera
+	//code?
+	#endregion
+	
+		#region Check for Toggle input
+	void Update(){
+		if (Input.GetButtonDown(playerControlsForCamera.ToggleCamera)){
+			SwitchToOtherPlayer();
+		}
+	}
+		#endregion
+
+		#region Do the Toggle
 	void SwitchToOtherPlayer(){
 		if (playerControlsForCamera.IsExplo){
 			targetTransformPosition = Players.implo_CameraAnchor;
@@ -69,8 +84,12 @@ public class CameraMovement : MonoBehaviour {
 			Players.dominantPlayer = PlayerType.Explo;
 		}
 	}
+		#endregion
 
+
+	#region DisableAnimator
 	public void DisableAnimator(){
 		GetComponent<Animator>().enabled = false;
 	}
+	#endregion
 }

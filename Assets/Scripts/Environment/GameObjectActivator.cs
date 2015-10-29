@@ -1,11 +1,16 @@
-﻿using UnityEngine;
+﻿#region Declaration (Inherits from Activator)
+using UnityEngine;
 using System.Collections;
 using GenericFunctions;
 
 public class GameObjectActivator : Activator {
+#endregion
 
+	#region initialize variables
 	public GameObject[] gameObjectsToActivate;
+	#endregion
 
+	#region Activate GameObjects
 	protected override void ActivateObjects(){
 		if (noise){
 			noise.Play();
@@ -15,4 +20,5 @@ public class GameObjectActivator : Activator {
 			gameObjectToActivate.SetActive(activateOnTrigger);
 		}
 	}
+	#endregion
 }

@@ -1,25 +1,26 @@
-﻿using UnityEngine;
+﻿#region Declaration
+using UnityEngine;
 using System.Collections;
 using GenericFunctions;
 
 public class BlockConverter_Internal : MonoBehaviour {
+#endregion
 
+	#region Initialize Variables
 	public Material[] cubeMaterials;
-	//0 neither
-	//1 explosive
-	//2 implosive
-	//3 both
 	public Renderer myRenderer;
 	public Animator myAnimator;
-	private BlockType blockType;
 	public AudioSource popNoise;
+	private BlockType blockType;
 
 	public void BeginBlockConversion(BlockType block){
 		blockType = block;
 		popNoise.Play();
 		myAnimator.SetInteger("AnimState",1);
 	}
-	
+	#endregion
+
+	#region Convert Block!
 	public void MakeCubeInteractable(){
 		if (blockType == BlockType.Immoveable){
 			gameObject.tag = Tags.immoveable_Objects;
@@ -38,9 +39,12 @@ public class BlockConverter_Internal : MonoBehaviour {
 			myRenderer.material = cubeMaterials[3];
 		}
 	}
+	#endregion
 
+	#region Animator access
 	public void FinishConversion(){
 		myAnimator.SetInteger("AnimState",0);
 	}
+	#endregion
 	
 }

@@ -1,11 +1,16 @@
-﻿using UnityEngine;
+﻿#region Declaration
+using UnityEngine;
 using System.Collections;
 using GenericFunctions;
 
 public class ScriptActivator : Activator {
+#endregion
 
+	#region Intialize Variables
 	public MonoBehaviour[] scriptsToActivate;
-	
+	#endregion
+
+	#region Activate Scripts!
 	protected override void ActivateObjects(){
 		if (noise){
 			noise.Play();
@@ -17,4 +22,5 @@ public class ScriptActivator : Activator {
 			}
 		}
 	}
+	#endregion
 }

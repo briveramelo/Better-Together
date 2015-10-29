@@ -7,7 +7,6 @@ public class DestroyOnCollision : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col){
 		if (enabled){
-			Debug.Log("TriggerEntered");
 			if ((destroyThese.value & (1<<col.gameObject.layer)) != 0){
 				Debug.LogWarning("HIT " + col.gameObject.name);
 				Destroy (col.gameObject);

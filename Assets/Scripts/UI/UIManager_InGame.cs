@@ -17,12 +17,12 @@ public class UIManager_InGame : MonoBehaviour {
 
 	public void RestartLevel(){
 		UnPause();
-		Application.LoadLevel(Application.loadedLevelName);
+		Levels.LoadLevel(LevelNames.Current);
 	}
 
-	public void ReturnToMainMenu(){
+	public void ReturnToLevelSelect(){
 		UnPause();
-		Application.LoadLevel(Levels.mainMenu);
+		Levels.LoadLevel(LevelNames.LevelSelect);
 	}
 
 	public void ViewControls(){

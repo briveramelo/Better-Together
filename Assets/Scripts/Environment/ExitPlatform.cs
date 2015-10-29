@@ -1,17 +1,27 @@
-﻿using UnityEngine;
+﻿#region Declaration
+using UnityEngine;
 using System.Collections;
 using GenericFunctions;
 public class ExitPlatform : MonoBehaviour {
+#endregion
 
+	#region Initialize Variables
 	public AudioClip wrapUp;
 	public PlayerType platformType;
 	public ExitPlatform partnerPlatform;
-	private bool platformActive;
 	public bool PlatformActive{get{return platformActive;}}
-	private bool levelComplete;
 	public Transform exploParentAnimTran;
 	public Transform imploParentAnimTran;
 
+	private bool platformActive;
+	private bool levelComplete;
+	#endregion
+
+	#region Platform Activation
+	//code?
+	#endregion
+
+		#region OnTriggerStay Activation
 	void OnTriggerStay(Collider col){
 		if (col.gameObject.layer == Layers.player){
 			if (col.gameObject.GetComponent<TypeOfPlayer>()){
@@ -30,7 +40,9 @@ public class ExitPlatform : MonoBehaviour {
 			}
 		}
 	}
+		#endregion
 
+		#region OnTriggerExit Deactivation
 	void OnTriggerExit(Collider col){
 		if (col.gameObject.layer == Layers.player){
 			if (col.GetComponent<TypeOfPlayer>()){
@@ -40,7 +52,13 @@ public class ExitPlatform : MonoBehaviour {
 			}
 		}
 	}
+		#endregion
 
+	#region End The Level Sequence
+	//code?
+	#endregion
+
+		#region End The Level
 	IEnumerator EndTheLevel(){
 		levelComplete = true;
 		Players.explo.GetComponent<PlayerMovement>().enabled = false;
@@ -58,13 +76,20 @@ public class ExitPlatform : MonoBehaviour {
 		cameraAudio.Play();
 		Camera.main.GetComponent<CameraMovement>().targetTransformLookSpot = Players.dominantPlayer == PlayerType.Explo ? Players.explo.transform : Players.implo.transform;
 		yield return new WaitForSeconds(wrapUp.length);
-		Application.LoadLevel(Levels.mainMenu);
+		if (GameManager.theInstance.CurrentLevel==GameManager.theInstance.HighestAccessibleLevel){
+			Debug.LogError ("bumped!");
+			GameManager.theInstance.HighestAccessibleLevel++;
+		}
+		Levels.LoadLevel(LevelNames.LevelSelect);
 	}
+		#endregion
 
+		#region Set Player Parents For Final Animation
 	public void SetAnimationParent(){
 		Players.explo.transform.parent = exploParentAnimTran;
 		Players.implo.transform.parent = imploParentAnimTran;
 		Players.explo.GetComponent<Animator>().enabled = true;
 		Players.implo.GetComponent<Animator>().enabled = true;
 	}
+		#endregion
 }

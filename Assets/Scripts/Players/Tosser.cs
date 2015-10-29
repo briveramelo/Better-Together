@@ -7,7 +7,6 @@ public class Tosser : MonoBehaviour {
 
 	public Controls controls;
 	private float tossForce;
-	private float yFactor; 
 	private float xAxisInput;
 	private float xDir;
 	private List<Collider> colliderstoToss;
@@ -27,7 +26,6 @@ public class Tosser : MonoBehaviour {
 
 	void Awake(){
 		tossForce = 600f;
-		yFactor = 7.5f;
 		timeBeforeYouCanTossTheColliderAgain = .5f;
 		colliderstoToss = new List<Collider>();
 	}
@@ -51,10 +49,11 @@ public class Tosser : MonoBehaviour {
 	void Toss(Collider col){
 		if (!colliderstoToss.Contains(col)){
 			colliderstoToss.Add(col);
-			Vector3 tossDir = new Vector3 (-xDir,yFactor,0f).normalized;
 			Rigidbody boxBody = col.GetComponent<Rigidbody>();
-			//boxBody.velocity =Vector3.zero;
-			boxBody.AddForce(tossDir * tossForce);
+			if (boxBody.velocity.y<0){
+				boxBody.velocity =Vector3.zero;
+			}
+			boxBody.AddForce(Vector3.up * tossForce);
 			StartCoroutine (RemoveColliderDelayed(col));
 		}
 	}

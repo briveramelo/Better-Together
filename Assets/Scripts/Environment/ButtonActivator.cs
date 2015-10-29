@@ -1,11 +1,17 @@
-﻿using UnityEngine;
+﻿#region Declaration (Inherits from Activator)
+using UnityEngine;
 using System.Collections;
 using GenericFunctions;
 
 public class ButtonActivator : Activator {
+#endregion
 
+	#region Initialize Variables
 	public ButtonType buttonType;
+	#endregion
 
+
+	#region Activate Buttons!
 	protected override void ActivateObjects(){
 		if (noise){
 			noise.Play();
@@ -34,5 +40,6 @@ public class ButtonActivator : Activator {
 			}
 		}
 	}
+	#endregion
 
 }

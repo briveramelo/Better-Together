@@ -8,7 +8,7 @@ public class Pause : MonoBehaviour {
 	private Controls controls;
 	public PlayerType playerType;
 
-	void Awake(){
+	void Start(){
 		GetCurrentControls();
 	}
 
@@ -23,12 +23,11 @@ public class Pause : MonoBehaviour {
 
 	void Update () {
 		if (Input.GetButtonDown(controls.Pause)){
-			PauseLevel();
+			StartCoroutine(PauseLevel());
 		}
 	}
 	
-	void PauseLevel(){
-		Time.timeScale = GameState.isPaused ? 1f : 0f;
+	IEnumerator PauseLevel(){
 		LevelItems.pauseMenu.SetActive(!LevelItems.pauseMenu.activeSelf);
 		GameState.isPaused = !GameState.isPaused;
 		foreach (AudioSource aud in FindObjectsOfType<AudioSource>()){
@@ -39,5 +38,7 @@ public class Pause : MonoBehaviour {
 				aud.UnPause();
 			}
 		}
+		yield return null;
+		Time.timeScale = GameState.isPaused ? 0f : 1f;
 	}
 }

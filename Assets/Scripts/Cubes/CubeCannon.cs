@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿#region Declaration
+using UnityEngine;
 using System.Collections;
 
 public class CubeCannon : MonoBehaviour {
+#endregion
 
+	#region Initialize variables
 	public GameObject exploCube;
 	public GameObject imploCube;
 	public GameObject bothCube;
@@ -14,12 +17,16 @@ public class CubeCannon : MonoBehaviour {
 	public Vector3 shootDirection;
 	[Range(0,1000)]
 	public float shootForce;
+	#endregion
 
+	#region Trigger Cube Spawn
 	void OnEnable(){
 		cubeToSpawn = ChooseTypeToSpawn(cubeType);
 		RespawnCube();
 	}
+	#endregion
 
+		#region Respawn Cube
 	public void RespawnCube(){
 		if (this){
 			StartCoroutine(RespawnCube_Internal());
@@ -32,7 +39,9 @@ public class CubeCannon : MonoBehaviour {
 		currentCube.GetComponent<Rigidbody>().AddForce(shootDirection.normalized * shootForce);
 		currentCube.AddComponent<BuddyCubeRespawner>().cubeCannon = this;
 	}
+		#endregion
 
+		#region Choose Cube To Spawn
 	GameObject ChooseTypeToSpawn(CubeTypes cubeType){
 		if (cubeType == CubeTypes.Explo){
 			return exploCube;
@@ -47,7 +56,10 @@ public class CubeCannon : MonoBehaviour {
 			return neitherCube;
 		}
 	}
+		#endregion
 
+
+	#region Gizmos + OnDestroyStopCoroutines
 	void OnDrawGizmos(){
 		Gizmos.DrawRay(transform.position,shootDirection*shootForce);
 	}
@@ -55,4 +67,5 @@ public class CubeCannon : MonoBehaviour {
 	void OnDestroy(){
 		StopAllCoroutines();
 	}
+	#endregion
 }

@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using GenericFunctions;
+using System.Collections.Generic;
+
 public class GameManager : MonoBehaviour {
 
 	public Controls p1;
 	public Controls p2;
+	public LevelNames highestAccessibleLevel;
+	public LevelNames currentLevel;
+	public LevelNames HighestAccessibleLevel{get{return highestAccessibleLevel;}set{highestAccessibleLevel=value;}}
+	public LevelNames CurrentLevel{get{return currentLevel;}set{currentLevel=value;}}
 
 	public static GameManager theInstance;
 
@@ -13,11 +19,19 @@ public class GameManager : MonoBehaviour {
 			DontDestroyOnLoad(gameObject);
 			theInstance = this;
 			StaticControls.P1_Controls = p1;
+			highestAccessibleLevel =LevelNames.Level1;
 		}
 		else if (theInstance !=this){
 			Destroy(gameObject);
 		}
 	}
+
+	void OnLevelWasLoaded(int levelNum){
+		if (levelNum>0){
+			currentLevel = (LevelNames)(levelNum-1);
+		}
+	}
+
 
 	#region Controls (explo _ implo)
 	public static class StaticControls{

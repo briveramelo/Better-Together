@@ -65,6 +65,18 @@ public class Ploder : MonoBehaviour {
 		StartCoroutine(FinishPloding());
 	}
 
+	public IEnumerator SlideTime(bool forward){
+		float target = forward ? 0 : 1;
+
+		float lerpFraction = .1f;
+		while (Mathf.Abs (plosionAnimator.GetFloat("TimeScale")-target)>0.01){
+			float currentTimeScale = Mathf.Lerp(plosionAnimator.GetFloat("TimeScale"),target,lerpFraction);
+			plosionAnimator.SetFloat("TimeScale", currentTimeScale);
+			yield return null;
+		}
+		plosionAnimator.SetFloat("TimeScale",target);
+	}
+
 	IEnumerator FinishPloding(){
 		yield return null;
 		yield return null;

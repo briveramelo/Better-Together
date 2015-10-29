@@ -7,9 +7,12 @@ public class PlayerMovement : MonoBehaviour {
 #endregion
 
 	#region Initialize Variables
+
+		#region declar vars
 	public PlayerType playerType;
 	public Transform feet;
 	public Ploder ploderScript;
+	public Rigidbody playerBody;
 
 	private bool grounded;
 	private bool willJump;
@@ -17,18 +20,13 @@ public class PlayerMovement : MonoBehaviour {
 	private float groundCheckHeight;
 	private float lastXAxisInput;
 	private float deadSize;
-	public Rigidbody playerBody;
 	private Controls controls;
+	private float maxSpeed;
+	private float moveForce;
+	private float jumpForce;
+		#endregion
 
-	[Range(2,5)]
-	public float maxSpeed;
-
-	[Range(0,6)]
-	public float moveForce;
-
-	[Range(500f,1000f)]
-	public float jumpForce;
-
+		#region Awake
 	void Awake(){
 		moveForce = .3f;
 		deadSize = 0.5f;
@@ -45,8 +43,9 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		GetCurrentControls();
 	}
-	#endregion
+		#endregion
 
+			#region Get Current Controls
 	public void GetCurrentControls(){
 		if (playerType == PlayerType.Explo){
 			controls = GameManager.StaticControls.Explo_Controls;
@@ -55,12 +54,14 @@ public class PlayerMovement : MonoBehaviour {
 			controls = GameManager.StaticControls.Implo_Controls;
 		} 
 	}
+			#endregion
 
+			#region SetSpeed
 	void SetSpeed(){
 		if (playerType == PlayerType.Explo){
 			//explosive jump, moderate running
-			maxSpeed = 5f;
-			jumpForce = 800f;
+			maxSpeed = 6f;
+			jumpForce = 700f;
 		}
 		else if (playerType == PlayerType.Implo){
 			//quick running, mild jump
@@ -68,7 +69,11 @@ public class PlayerMovement : MonoBehaviour {
 			jumpForce = 600f;
 		}
 	}
+			#endregion
 
+	#endregion
+
+	#region Trigger Movement
 	void Update(){
 		grounded = CheckForGround();
 		willJump = Input.GetButtonDown(controls.Jump) && grounded;
@@ -79,7 +84,7 @@ public class PlayerMovement : MonoBehaviour {
 		bool willMoveSideways = Mathf.Abs (xAxisInput)>0 &&
 			(Mathf.Abs (playerBody.velocity.x)<(maxSpeed *Mathf.Abs (xAxisInput)) ||
 			 Mathf.Sign (playerBody.velocity.x)!= Mathf.Sign(xAxisInput));
-		bool willBrake = grounded && Mathf.Abs (lastXAxisInput)>deadSize && Mathf.Abs (xAxisInput) <deadSize;
+		bool willBrake = Mathf.Abs (lastXAxisInput)>deadSize && Mathf.Abs (xAxisInput) <deadSize;
 
 		if (willJump){
 			Jump();
@@ -89,15 +94,13 @@ public class PlayerMovement : MonoBehaviour {
 			MoveSideways(xAxisInput);
 		}
 		if (willBrake){
-			Brake();
+			//Brake();
 		}
 		lastXAxisInput = xAxisInput;
 	}
+	#endregion
 
-	void Brake(){
-		playerBody.velocity = new Vector3(0f,playerBody.velocity.y,0f);
-	}
-
+	#region Apply Movement
 	void Jump(){
 		playerBody.velocity = new Vector3(playerBody.velocity.x,0f,0f);
 		playerBody.AddForce (Vector3.up * jumpForce);
@@ -108,17 +111,27 @@ public class PlayerMovement : MonoBehaviour {
 		//transform.localScale = new Vector3(Mathf.Sign(xAxisInput),1f,1f);
 	}
 
-	bool CheckForGround(){
+	void Brake(){
+		playerBody.velocity = new Vector3(0f,playerBody.velocity.y,0f);
+	}
+	#endregion
 
+	#region Check For Ground
+	bool CheckForGround(){
 		return Physics.Raycast(feet.position + Vector3.up*0.5f,Vector3.down,(0.5f+groundCheckHeight),groundCheckMask)||
 			Physics.Raycast(feet.position + transform.right*0.3f + Vector3.up*0.5f,Vector3.down,(0.5f+groundCheckHeight),groundCheckMask)||
 			Physics.Raycast(feet.position - transform.right*0.3f + Vector3.up*0.5f,Vector3.down,(0.5f+groundCheckHeight),groundCheckMask);
 	}
+	#endregion
+
+
+	#region Graveyard
 //
 //	void OnDrawGizmos(){
 //		Debug.DrawRay(feet.position + Vector3.up*0.5f,Vector3.down*(0.5f+groundCheckHeight));
 //		Debug.DrawRay(feet.position + transform.right*0.3f + Vector3.up*0.5f,Vector3.down*(0.5f+groundCheckHeight));
 //		Debug.DrawRay(feet.position - transform.right*0.3f + Vector3.up*0.5f,Vector3.down*(0.5f+groundCheckHeight));
 //	}
+	#endregion
 
 }
